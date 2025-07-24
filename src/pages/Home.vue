@@ -20,10 +20,10 @@ import NavVue  from "../components/NavBar.vue";
 
     <!-- <BrandsVue/> -->
     <AboutUsVue/>
-    <SomeCountsVue/>
+    <!-- <SomeCountsVue/> -->
 
     <MeetOurCeoVue/>
-    <ourExecutivesVue/>
+    <!-- <ourExecutivesVue/> -->
     <LocationsVue/>
     <contactUSVue/>
     </template>

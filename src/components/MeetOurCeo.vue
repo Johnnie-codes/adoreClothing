@@ -1,12 +1,18 @@
+<script setup lang="ts">
+import OurExecutives from './ourExecutives.vue';
+
+</script>
+
 <template>
-  <div class="bg-gradient-to-r from-orange-100 to-red-100 w-full">
+  <div class="bg-gradient-to-b h-full    from-orange-400 to-orange-0 w-full">
+    <div class="sm:w-[1296px]  p-10 flex flex-col mx-auto  gap-8"><span class="text-3xl font-bold text-white">Our executives </span>
     <div
-      class="w-full md:w-[1296px] flex flex-col mx-auto py-20 md:py-40 p-3 gap-8"
+      class="w-full sm:w-[1296px] bg-white   p-10 flex flex-col mx-auto  gap-8"
     >
-      <div class="w-full text-[#363940] h-5 text-left text-3xl font-bold">
+      <div class="w-full text-[#363940]   text-left text-3xl font-bold">
         Meet Our CEO
       </div>
-      <div class="flex flex-col-reverse gap-6 md:flex-row justify-between">
+      <div class="flex flex-col-reverse rounded p-2  bg-white gap-6 md:flex-row justify-between">
         <div class="w-full md:w-1/2 text-[#666666] h-auto gap-6 flex flex-col">
           <span class="text-2xl font-bold text-left"
             >Seife Demissie Legesse</span
@@ -50,7 +56,8 @@
           />
         </div>
       </div>
-    </div>
+      <OurExecutives/>
+    </div></div>
   </div>
 </template>
 

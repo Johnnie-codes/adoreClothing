@@ -1,16 +1,14 @@
-<template >
+<script setup lang="ts">
+import SomeCounts from './SomeCounts.vue';
+
+</script>
+
+<template>
   <div class="bg-[#FFFCFA] w-full">
-    <div
-      id="AboutUS"
-      class="max-w-[1296px] gap-16 flex flex-col mx-auto py-20 px-4 sm:px-6 lg:px-8 space-y-10"
-    >
+    <div id="AboutUS" class="max-w-[1296px] gap-16 flex flex-col mx-auto py-20 px-4 sm:px-6 lg:px-8 space-y-10">
       <div class="text-[#363940] text-4xl font-bold">About Kenema</div>
       <div class="flex flex-col md:flex-row items-center md:space-x-8">
-        <img
-          src="/src/assets/img/AboutKenema.png"
-          class="w-full md:w-[50%]"
-          alt=""
-        />
+        <img src="/src/assets/img/AboutKenema.png" class="w-full md:w-[50%]" alt="" />
         <p class="text-[#666666] text-base md:text-justify md:w-[50%]">
           At Kenema pharmacy, we are dedicated to providing our community with
           the highest quality pharmaceutical care and customer service. Our
@@ -63,6 +61,47 @@
             <p class="flex icon items-center"> High-Quality Service</p>
           </div>
         </div>
+      </div>
+      <SomeCounts />
+      <div class="gap-5 flex flex-col">
+        <span class="font-bold text-3xl">Functions and Responsibilities</span>
+        <div class="grid grid-cols-4 gap-4 rounded-lg">
+          <div class="border rounded p-2 flex ">
+            <p class=""> <strong>Ensure the availability</strong> of essential and necessary medicines and
+              healthcare supplies in sufficient quantities and at affordable prices for the community.</p>
+          </div>
+          <div class="border rounded p-2 flex ">
+            <p class=""> <strong>Provide appropriate advice and guidance</strong>regarding the type, nature, and usage
+              of medicines to the community.</p>
+          </div>
+          <div class="border rounded p-2 flex ">
+            <p class=""> <strong>Manage the preparation of medicines </strong> within the pharmacy based on established
+              conditions and standards.</p>
+          </div>
+          <div class="border rounded p-2 flex ">
+            <p class=""> <strong>Implement necessary directives</strong> and guidelines from health authorities
+              regarding medication management and regulation.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-4 rounded-lg">
+          <div class="border rounded p-2 flex ">
+            <p class=""> <strong>Collaborate with local healthcare providers</strong> to ensure access to medicines
+              outside regular working hours.</p>
+          </div>
+          <div class="border rounded p-2 flex ">
+            <p class=""> <strong>Collect and report data</strong> on the usage and movement of medicines to relevant
+              bodies.</p>
+          </div>
+          <div class="border rounded p-2 flex ">
+            <p class=""> <strong>Participate in efforts</strong> to improve and maintain health services by responding
+              to requests from pertinent agencies.</p>
+          </div>
+          <div class="border rounded p-2 flex ">
+            <p class=""> <strong>Expand the number of pharmacies </strong> in various locations within the city to enhance accessibility.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
