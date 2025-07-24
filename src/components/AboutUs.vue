@@ -26,8 +26,8 @@ import SomeCounts from './SomeCounts.vue';
           doctors, nurses, and other healthcare providers.
         </p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-xl shadow-md p-6">
+      <div class="grid grid-cols-1  md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-xl h-fit shadow-md p-6">
           <h3 class="text-[#363940] text-3xl font-bold mb-4">Vision</h3>
           <div class="text-[#666666] text-base space-y-4">
             <p>
@@ -37,7 +37,7 @@ import SomeCounts from './SomeCounts.vue';
             </p>
           </div>
         </div>
-        <div class="bg-white rounded-xl shadow-md p-6">
+        <div class="bg-white rounded-xl h-fit shadow-md p-6">
           <h3 class="text-[#363940] text-3xl font-bold mb-4">Mission</h3>
           <div class="text-[#666666] text-base space-y-4">
             <p>
@@ -48,7 +48,7 @@ import SomeCounts from './SomeCounts.vue';
             </p>
           </div>
         </div>
-        <div class="bg-white rounded-xl shadow-md p-6">
+        <div class="bg-white rounded-xl h-fit shadow-md p-6">
           <h3 class="text-[#363940] text-3xl font-bold mb-4">Values</h3>
           <div class="text-[#666666] text-base space-y-2">
             <p class="flex icon items-center"> Competitiveness</p>

@@ -7,7 +7,7 @@ import OurExecutives from './ourExecutives.vue';
   <div class="bg-gradient-to-b h-full    from-orange-400 to-orange-0 w-full">
     <div class="sm:w-[1296px]  p-10 flex flex-col mx-auto  gap-8"><span class="text-3xl font-bold text-white">Our executives </span>
     <div
-      class="w-full sm:w-[1296px] bg-white   p-10 flex flex-col mx-auto  gap-8"
+      class="w-full  bg-white   p-10 flex flex-col mx-auto  gap-8"
     >
       <div class="w-full text-[#363940]   text-left text-3xl font-bold">
         Meet Our CEO

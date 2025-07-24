@@ -2,7 +2,10 @@
 import { ref, computed } from 'vue'
 import Map from './Map.vue'
 
-// Location data for Kenema Pharmacies
+const selectedLocation = ref(null)
+const searchQuery = ref('')
+
+// Keep all existing location data
 const locations = ref([
   {
     id: 1,
@@ -26,8 +29,174 @@ const locations = ref([
     isOpen: true,
     hours: "8:00 AM - 10:00 PM"
   },
+  // Add all pharmacy locations from pharmacyMap.vue
   {
     id: 3,
+    name: "Kenema Pharmacy, No.5",
+    address: "Gotera",
+    phone: "+0114653339",
+    email: "info@kenemapharmacy.com",
+    latitude: 8.984783146177843,
+    longitude: 38.74978976654747,
+    isOpen: true,
+    hours: "8:00 AM - 10:00 PM"
+  },
+  {
+    id: 4,
+    name: "Kenema Pharmacy, No. 7",
+    address: "Saris",
+    phone: "+0114423175",
+    email: "info@kenemapharmacy.com",
+    latitude: 8.974017198633828,
+    longitude: 38.760694887916834,
+    isOpen: true,
+    hours: "8:00 AM - 10:00 PM"
+  },
+  {
+    id: 5,
+    name: "Kenema Pharmacy, No. 18",
+    address: "Shola",
+    phone: "+0114423175",
+    email: "info@kenemapharmacy.com",
+    latitude: 9.0265150589028,
+    longitude: 38.79686896748762,
+    isOpen: true,
+    hours: "8:00 AM - 10:00 PM"
+  },
+  {
+    id: 6,
+    name: "Kenema Pharmacy, Lideta Condominium",
+    address: "Ledeta",
+    phone: "+0111566018",
+    email: "info@kenemapharmacy.com",
+    latitude: 9.016266952320276,
+    longitude: 38.73789844696694,
+    isOpen: true,
+    hours: "8:00 AM - 10:00 PM"
+  },
+  {
+    id: 7,
+    name: "Kenema Pharmacy, Number 8",
+    address: "Ledeta",
+    phone: "+0913706970",
+    email: "info@kenemapharmacy.com",
+    latitude: 9.027169437917687,
+    longitude: 38.79614906935321,
+    isOpen: true,
+    hours: "8:00 AM - 10:00 PM"
+  },
+  {
+    id: 8,
+    name: "Kenema Pharmacy, Number 17",
+    address: "Menelik",
+    phone: "+0911874157",
+    email: "info@kenemapharmacy.com",
+    latitude: 9.015535138037157,
+    longitude: 38.76656234787673,
+    isOpen: true,
+    hours: "8:00 AM - 10:00 PM"
+  },
+  {
+    id: 9,
+    name: "Kenema Pharmacy, Merkato",
+    address: "Merkato",
+    phone: "+0112132006",
+    email: "info@kenemapharmacy.com",
+    latitude: 9.029098135194726,
+    longitude: 38.78699005133013,
+    isOpen: true,
+    hours: "8:00 AM - 10:00 PM"
+  },
+  {
+    id: 10,
+    name: "Kenema Pharmacy, Number 7",
+    address: "Shola",
+    phone: "+0944229932",
+    email: "info@kenemapharmacy.com",
+    latitude: 9.028250462810908,
+    longitude: 38.78784835819792,
+    isOpen: true,
+    hours: "8:00 AM - 10:00 PM"
+  },
+  {
+    id: 11,
+    name: "Kenema Pharmacy, Number 5",
+    address: "Denberua",
+    phone: "+0913368701",
+    email: "info@kenemapharmacy.com",
+    latitude: 9.024520680651904,
+    longitude: 38.788020019571476,
+    isOpen: true,
+    hours: "8:00 AM - 10:00 PM"
+  },
+  {
+    id: 12,
+    name: "Kenema Pharmacy, Number 9",
+    address: "Addis Ababa",
+    phone: "+0911080034",
+    email: "info@kenemapharmacy.com",
+    latitude: 9.004345281849222,
+    longitude: 38.75094116288295,
+    isOpen: true,
+    hours: "8:00 AM - 10:00 PM"
+  },
+  {
+    id: 13,
+    name: "Kenema Pharmacy, Number 12",
+    address: "Mechare",
+    phone: "+0930014763",
+    email: "info@kenemapharmacy.com",
+    latitude: 9.0046843734906,
+    longitude: 38.74252975557861,
+    isOpen: true,
+    hours: "8:00 AM - 10:00 PM"
+  },
+  {
+    id: 14,
+    name: "Kenema Pharmacy, Stadium",
+    address: "Stadium",
+    phone: "+0111566018",
+    email: "info@kenemapharmacy.com",
+    latitude: 9.049289426194287,
+    longitude: 38.87967035986613,
+    isOpen: true,
+    hours: "8:00 AM - 10:00 PM"
+  },
+  {
+    id: 15,
+    name: "Kenema Pharmacy, Nifas Silk",
+    address: "Nifas silk",
+    phone: "+0913072806",
+    email: "info@kenemapharmacy.com",
+    latitude: 9.023348525526949,
+    longitude: 38.78673389162476,
+    isOpen: true,
+    hours: "8:00 AM - 10:00 PM"
+  },
+  {
+    id: 16,
+    name: "Kenema Pharmacy, Arada",
+    address: "Addis Ababa",
+    phone: "+0911239250",
+    email: "info@kenemapharmacy.com",
+    latitude: 9.074715,
+    longitude: 38.737810,
+    isOpen: true,
+    hours: "8:00 AM - 10:00 PM"
+  },
+  {
+    id: 17,
+    name: "Kenema Pharmacy, No. 19",
+    address: "Addis Ababa",
+    phone: "+0111566018",
+    email: "info@kenemapharmacy.com",
+    latitude: 9.06651960551578,
+    longitude: 38.872324666733924,
+    isOpen: true,
+    hours: "8:00 AM - 10:00 PM"
+  },
+  {
+    id: 18,
     name: "Kenema Pharmacy, Number 14",
     address: "Addis Ababa",
     phone: "+0932354518",
@@ -36,342 +205,17 @@ const locations = ref([
     longitude: 38.71989604398679,
     isOpen: true,
     hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 4,
-    name: "Kenema Pharmacy Piassa",
-    address: "Piassa District, Near Arat Kilo",
-    phone: "+251911234569",
-    email: "piassa@kenemapharmacy.com",
-    latitude: 9.0348,
-    longitude: 38.7596,
-    isOpen: true,
-    hours: "7:00 AM - 11:00 PM"
-  },
-  {
-    id: 5,
-    name: "Kenema Pharmacy Merkato",
-    address: "Merkato Commercial Area, Building 45",
-    phone: "+251911234570",
-    email: "merkato@kenemapharmacy.com",
-    latitude: 9.0092,
-    longitude: 38.7441,
-    isOpen: true,
-    hours: "8:00 AM - 9:00 PM"
-  },
-  {
-    id: 6,
-    name: "Kenema Pharmacy Kazanchis",
-    address: "Kazanchis Business District",
-    phone: "+251911234571",
-    email: "kazanchis@kenemapharmacy.com",
-    latitude: 9.0184,
-    longitude: 38.7571,
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 7,
-    name: "Kenema Pharmacy Megenagna",
-    address: "Megenagna, Near CMC Hospital",
-    phone: "+251911234572",
-    email: "megenagna@kenemapharmacy.com",
-    latitude: 9.0421,
-    longitude: 38.7893,
-    isOpen: true,
-    hours: "24 Hours"
-  },
-  {
-    id: 8,
-    name: "Kenema Pharmacy Lebu",
-    address: "Lebu District, Main Road",
-    phone: "+251911234573",
-    email: "lebu@kenemapharmacy.com",
-    latitude: 9.0156,
-    longitude: 38.7234,
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 9,
-    name: "Kenema Pharmacy Sarbet",
-    address: "Sarbet Area, Near Ethio Telecom",
-    phone: "+251911234574",
-    email: "sarbet@kenemapharmacy.com",
-    latitude: 9.0267,
-    longitude: 38.7456,
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 10,
-    name: "Kenema Pharmacy Kotebe",
-    address: "Kotebe University Area",
-    phone: "+251911234575",
-    email: "kotebe@kenemapharmacy.com",
-    latitude: 8.9876,
-    longitude: 38.7823,
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 11,
-    name: "Kenema Pharmacy Hayat",
-    address: "Hayat Hospital Area",
-    phone: "+251911234576",
-    email: "hayat@kenemapharmacy.com",
-    latitude: 9.0512,
-    longitude: 38.7634,
-    isOpen: true,
-    hours: "24 Hours"
-  },
-  {
-    id: 12,
-    name: "Kenema Pharmacy Bole Atlas",
-    address: "Bole Atlas, Near Edna Mall",
-    phone: "+251911234577",
-    email: "atlas@kenemapharmacy.com",
-    latitude: 8.9934,
-    longitude: 38.7889,
-    isOpen: true,
-    hours: "8:00 AM - 11:00 PM"
-  },
-  {
-    id: 13,
-    name: "Kenema Pharmacy No. 11",
-    address: "Addis Ababa, Ethiopia",
-    phone: "+251911234578",
-    email: "no11@kenemapharmacy.com",
-    latitude: 9.0601735,
-    longitude: 38.7372069,
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 14,
-    name: "Kenema Pharmacy No. 38",
-    address: "Addis Ababa, Ethiopia",
-    phone: "+251911234579",
-    email: "no38@kenemapharmacy.com",
-    latitude: 9.053177,
-    longitude: 38.742285,
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 15,
-    name: "Kenema Pharmacy (Piassa Kenema Public Pharmacy)",
-    address: "Piassa District, Addis Ababa",
-    phone: "+251911234580",
-    email: "piassapublic@kenemapharmacy.com",
-    latitude: 9.032403,
-    longitude: 38.753659,
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 16,
-    name: "Kenema Pharmacy (Kenema Public Pharmacy, Number 4, 4Kilo)",
-    address: "4Kilo Area, Addis Ababa",
-    phone: "+251911234581",
-    email: "4kilo@kenemapharmacy.com",
-    latitude: 9.0337673,
-    longitude: 38.7618262,
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 17,
-    name: "Kenema Public Pharmacy (Kenema Pharmacy, No.12, Infront of Filwuha)",
-    address: "Infront of Filwuha, Addis Ababa",
-    phone: "+251911234582",
-    email: "filwuha@kenemapharmacy.com",
-    latitude: 9.0167,
-    longitude: 38.7565,
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 18,
-    name: "Kenema Pharmacy",
-    latitude: 9.0142589,
-    longitude: 38.757301,
-    address: "Addis Ababa, Ethiopia",
-    phone: "+251911234583",
-    email: "info@kenemapharmacy.com",
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 19,
-    name: "Kenema pharmacy lideta condominium block 41",
-    latitude: 9.0162133,
-    longitude: 38.7378949,
-    address: "Addis Ababa, Ethiopia",
-    phone: "+251911234584",
-    email: "info@kenemapharmacy.com",
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 20,
-    name: "Kenema Public Pharmacy Lideta Church, No. 08",
-    latitude: 9.0107966,
-    longitude: 38.7376213,
-    address: "Addis Ababa, Ethiopia",
-    phone: "+251911234585",
-    email: "info@kenemapharmacy.com",
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 21,
-    name: "Kenema Pharmacy Number 12",
-    latitude: 9.001841,
-    longitude: 38.741997,
-    address: "Addis Ababa, Ethiopia",
-    phone: "+251911234586",
-    email: "info@kenemapharmacy.com",
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 22,
-    name: "Kenema Pharmacy No. 3",
-    latitude: 8.9670958,
-    longitude: 38.7280262,
-    address: "Addis Ababa, Ethiopia",
-    phone: "+251911234587",
-    email: "info@kenemapharmacy.com",
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 23,
-    name: "Kenema 40",
-    latitude: 8.980332,
-    longitude: 38.710412,
-    address: "Addis Ababa, Ethiopia",
-    phone: "+251911234588",
-    email: "info@kenemapharmacy.com",
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 24,
-    name: "Kenema 53",
-    latitude: 8.9849856,
-    longitude: 38.7886375,
-    address: "Addis Ababa, Ethiopia",
-    phone: "+251911234589",
-    email: "info@kenemapharmacy.com",
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 25,
-    name: "Kenema 31",
-    latitude: 8.9825993,
-    longitude: 38.666013,
-    address: "Addis Ababa, Ethiopia",
-    phone: "+251911234590",
-    email: "info@kenemapharmacy.com",
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 26,
-    name: "Kenema 24",
-    latitude: 8.97042,
-    longitude: 38.675461,
-    address: "Addis Ababa, Ethiopia",
-    phone: "+251911234591",
-    email: "info@kenemapharmacy.com",
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 27,
-    name: "Kenema 26",
-    latitude: 8.961737,
-    longitude: 38.70584,
-    address: "Addis Ababa, Ethiopia",
-    phone: "+251911234592",
-    email: "info@kenemapharmacy.com",
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 28,
-    name: "Kenema 37",
-    latitude: 8.9569435,
-    longitude: 38.713759,
-    address: "Addis Ababa, Ethiopia",
-    phone: "+251911234593",
-    email: "info@kenemapharmacy.com",
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 29,
-    name: "Kenema 46",
-    latitude: 8.908858,
-    longitude: 38.736664,
-    address: "Addis Ababa, Ethiopia",
-    phone: "+251911234594",
-    email: "info@kenemapharmacy.com",
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 30,
-    name: "Kenema 21",
-    latitude: 8.877951,
-    longitude: 38.766642,
-    address: "Addis Ababa, Ethiopia",
-    phone: "+251911234595",
-    email: "info@kenemapharmacy.com",
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 31,
-    name: "Kenema No. 06 (Akaki)",
-    latitude: 8.866631,
-    longitude: 38.789579,
-    address: "Addis Ababa, Ethiopia",
-    phone: "+251911234596",
-    email: "info@kenemapharmacy.com",
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 32,
-    name: "Kenema 36",
-    latitude: 8.887346,
-    longitude: 38.795854,
-    address: "Addis Ababa, Ethiopia",
-    phone: "+251911234597",
-    email: "info@kenemapharmacy.com",
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
   }
 ])
 
-const selectedLocation = ref(null)
-const searchQuery = ref('')
-
-// Filter locations based on search query
 const filteredLocations = computed(() => {
   if (!searchQuery.value) return locations.value
-  
-  return locations.value.filter(location => 
+  return locations.value.filter(location =>
     location.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
     location.address.toLowerCase().includes(searchQuery.value.toLowerCase())
   )
 })
 
-// Get center coordinates for map (average of all locations)
 const mapCenter = computed(() => {
   if (selectedLocation.value) {
     return {
@@ -404,131 +248,74 @@ const navigateToLocation = (location) => {
 </script>
 
 <template>
-  <div id="Locations" class="bg-[#FFFCFA] w-full py-20">
+  <div id="Locations" class="bg-orange-500 w-full py-20">
     <div class="max-w-[1296px] mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Header -->
       <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold text-[#363940] mb-4">Our Locations</h2>
-        <p class="text-[#666666] text-lg max-w-2xl mx-auto">
-          Find the nearest Kenema Pharmacy location to you. We're committed to serving communities across Addis Ababa.
-        </p>
+        <h2 class="text-4xl font-bold text-white mb-4">Locations</h2>
       </div>
 
-      <!-- Search Bar -->
-      <div class="mb-8">
-        <div class="relative max-w-md mx-auto">
-          <input
-            v-model="searchQuery"
-            type="text"
-            placeholder="Search anything..."
-            class="w-full px-4 py-3 pl-10 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-          >
-          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-            </svg>
+      <!-- Main Content -->
+      <div class="flex flex-col lg:flex-row gap-6">
+        <!-- Map Section (Left Side) -->
+        <div class="lg:w-2/3 w-full">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-[500px]">
+            <Map
+              :latitude="mapCenter.latitude"
+              :longitude="mapCenter.longitude"
+            />
+            <!-- <div class="absolute bottom-4 right-4 bg-orange-500 text-white px-4 py-2 rounded">
+              Navigate
+            </div> -->
           </div>
-        
         </div>
-      </div>
 
-      <!-- Main Content: Locations List and Map Side by Side -->
-      <div class="flex flex-col lg:flex-row gap-8 max-w-7xl mx-auto">
-
-        <!-- Locations List (Left Side) -->
+        <!-- Search and List Section (Right Side) -->
         <div class="lg:w-1/3 w-full">
-          <div class="bg-white rounded-lg shadow-lg p-6 h-fit max-h-[600px] overflow-y-auto">
-            <h3 class="text-xl font-semibold text-gray-900 mb-4">Pharmacy Locations</h3>
-            <div class="space-y-3">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <!-- Search Bar -->
+            <div class="p-4 border-b">
+              <div class="relative">
+                <input
+                  v-model="searchQuery"
+                  type="text"
+                  placeholder="Search anything"
+                  class="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                />
+                
+              </div>
+            </div>
+
+            <!-- Location List -->
+            <div class="max-h-[400px] overflow-y-auto">
               <div
-                v-for="(location, index) in filteredLocations"
+                v-for="(location, index) in filteredLocations.slice(0, 10)"
                 :key="location.id"
-                class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden cursor-pointer transition-all duration-200"
-                :class="selectedLocation?.id === location.id ? 'bg-orange-500 text-white border-orange-500' : 'hover:shadow-md hover:border-orange-300'"
                 @click="selectLocation(location)"
+                :class="[
+                  'p-4 border-b cursor-pointer hover:bg-gray-50 transition-colors',
+                  selectedLocation?.id === location.id ? 'bg-orange-100' : '',
+                  index === 0 ? 'bg-orange-500 text-white' : 'text-gray-800'
+                ]"
               >
-                <div class="p-4">
-                  <div class="flex items-center justify-between">
-                    <div class="flex items-center space-x-3">
-                      <div
-                        class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold"
-                        :class="selectedLocation?.id === location.id ? 'bg-white text-orange-500' : 'bg-orange-500 text-white'"
-                      >
-                        {{ index + 1 }}
-                      </div>
-                      <div class="flex-1">
-                        <h4
-                          class="font-semibold text-sm"
-                          :class="selectedLocation?.id === location.id ? 'text-white' : 'text-gray-900'"
-                        >
-                          {{ location.name }}
-                        </h4>
-                        <p
-                          class="text-xs mt-1"
-                          :class="selectedLocation?.id === location.id ? 'text-orange-100' : 'text-gray-500'"
-                        >
-                          {{ location.address }}
-                        </p>
-                        <p
-                          class="text-xs mt-1"
-                          :class="selectedLocation?.id === location.id ? 'text-orange-100' : 'text-gray-400'"
-                        >
-                          {{ location.hours }}
-                        </p>
-                      </div>
-                    </div>
-                    <div class="flex flex-col items-end space-y-1">
-                      <div
-                        class="w-2 h-2 rounded-full"
-                        :class="location.isOpen ? 'bg-green-400' : 'bg-red-400'"
-                      ></div>
-                      <button
-                        @click.stop="navigateToLocation(location)"
-                        class="text-xs font-medium hover:underline"
-                        :class="selectedLocation?.id === location.id ? 'text-white' : 'text-orange-500'"
-                      >
-                        Navigate
-                      </button>
+                <div class="flex items-center gap-3">
+                  <div :class="[
+                    'w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold',
+                    index === 0 ? 'bg-white text-orange-500' : 'bg-orange-500 text-white'
+                  ]">
+                    {{ index + 1 }}
+                  </div>
+                  <div class="flex-1">
+                    <div class="font-semibold text-sm">{{ location.name }}</div>
+                    <div :class="[
+                      'text-xs',
+                      index === 0 ? 'text-orange-100' : 'text-gray-500'
+                    ]">
+                      {{ location.address }}
                     </div>
                   </div>
                 </div>
               </div>
-
-              <!-- No results message -->
-              <div v-if="filteredLocations.length === 0" class="text-center py-8">
-                <p class="text-gray-500 text-sm">No locations found matching your search.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Map Section (Right Side) -->
-        <div class="lg:w-2/3 w-full">
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div class="p-4 bg-orange-500 text-white">
-              <div class="flex items-center justify-between">
-                <div>
-                  <h3 class="text-xl font-semibold">
-                    {{ selectedLocation ? selectedLocation.name : 'All Kenema Pharmacy Locations' }}
-                  </h3>
-                  <p class="text-orange-100 text-sm mt-1">
-                    {{ selectedLocation ? selectedLocation.address : `Showing ${filteredLocations.length} locations` }}
-                  </p>
-                </div>
-                <button
-                  v-if="selectedLocation"
-                  @click="clearSelection"
-                  class="text-sm bg-orange-600 hover:bg-orange-700 px-4 py-2 rounded transition-colors duration-200"
-                >
-                  Show All
-                </button>
-              </div>
-            </div>
-            <div class="h-96 lg:h-[500px]">
-              <Map
-                :latitude="mapCenter.latitude"
-                :longitude="mapCenter.longitude"
-              />
             </div>
           </div>
         </div>
@@ -548,3 +335,4 @@ p, span {
   font-family: "Ubuntu", sans-serif;
 }
 </style>
+
