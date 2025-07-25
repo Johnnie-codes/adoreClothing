@@ -4,7 +4,7 @@ import OurExecutives from './ourExecutives.vue';
 </script>
 
 <template>
-  <div class="bg-gradient-to-b h-full    from-orange-400 to-orange-0 w-full">
+  <div class="bg-gradient-to-b h-full    from-orange-500 py-20 to-orange-0 w-full">
     <div class="sm:w-[1296px]  p-10 flex flex-col mx-auto  gap-8"><span class="text-3xl font-bold text-white">Our executives </span>
     <div
       class="w-full  bg-white   p-10 flex flex-col mx-auto  gap-8"

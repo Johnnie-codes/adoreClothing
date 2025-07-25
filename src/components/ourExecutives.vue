@@ -8,7 +8,7 @@
       <!-- Executive Cards Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Executive 1 -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+        <div class="bg-white   overflow-hidden hover:shadow-xl transition-shadow duration-300">
           <div class="aspect-w-3 aspect-h-4 bg-gray-200">
             <img
               src="/src/assets/img/birhanu.png"
@@ -23,7 +23,7 @@
         </div>
 
         <!-- Executive 2 -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+        <div class="bg-white   overflow-hidden hover:shadow-xl transition-shadow duration-300">
           <div class="aspect-w-3 aspect-h-4 bg-gray-200">
             <img
               src="/src/assets/img/rawda.png"
@@ -38,7 +38,7 @@
         </div>
 
         <!-- Executive 3 -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+        <div class="bg-white   overflow-hidden hover:shadow-xl transition-shadow duration-300">
           <div class="aspect-w-3 aspect-h-4 bg-gray-200">
             <img
               src="/src/assets/img/solomon.png"
