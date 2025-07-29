@@ -579,6 +579,9 @@ const locations = ref([
     isOpen: true,
     hours: "8:00 AM - 10:00 PM"
   }
+
+
+  
 ])
 
 // Set first location as default selected
