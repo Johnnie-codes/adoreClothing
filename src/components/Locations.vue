@@ -29,7 +29,6 @@ const locations = ref([
     isOpen: true,
     hours: "8:00 AM - 10:00 PM"
   },
-  // Add all pharmacy locations from pharmacyMap.vue
   {
     id: 3,
     name: "Kenema Pharmacy, No.5",
@@ -62,151 +61,11 @@ const locations = ref([
     longitude: 38.79686896748762,
     isOpen: true,
     hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 6,
-    name: "Kenema Pharmacy, Lideta Condominium",
-    address: "Ledeta",
-    phone: "+0111566018",
-    email: "info@kenemapharmacy.com",
-    latitude: 9.016266952320276,
-    longitude: 38.73789844696694,
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 7,
-    name: "Kenema Pharmacy, Number 8",
-    address: "Ledeta",
-    phone: "+0913706970",
-    email: "info@kenemapharmacy.com",
-    latitude: 9.027169437917687,
-    longitude: 38.79614906935321,
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 8,
-    name: "Kenema Pharmacy, Number 17",
-    address: "Menelik",
-    phone: "+0911874157",
-    email: "info@kenemapharmacy.com",
-    latitude: 9.015535138037157,
-    longitude: 38.76656234787673,
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 9,
-    name: "Kenema Pharmacy, Merkato",
-    address: "Merkato",
-    phone: "+0112132006",
-    email: "info@kenemapharmacy.com",
-    latitude: 9.029098135194726,
-    longitude: 38.78699005133013,
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 10,
-    name: "Kenema Pharmacy, Number 7",
-    address: "Shola",
-    phone: "+0944229932",
-    email: "info@kenemapharmacy.com",
-    latitude: 9.028250462810908,
-    longitude: 38.78784835819792,
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 11,
-    name: "Kenema Pharmacy, Number 5",
-    address: "Denberua",
-    phone: "+0913368701",
-    email: "info@kenemapharmacy.com",
-    latitude: 9.024520680651904,
-    longitude: 38.788020019571476,
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 12,
-    name: "Kenema Pharmacy, Number 9",
-    address: "Addis Ababa",
-    phone: "+0911080034",
-    email: "info@kenemapharmacy.com",
-    latitude: 9.004345281849222,
-    longitude: 38.75094116288295,
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 13,
-    name: "Kenema Pharmacy, Number 12",
-    address: "Mechare",
-    phone: "+0930014763",
-    email: "info@kenemapharmacy.com",
-    latitude: 9.0046843734906,
-    longitude: 38.74252975557861,
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 14,
-    name: "Kenema Pharmacy, Stadium",
-    address: "Stadium",
-    phone: "+0111566018",
-    email: "info@kenemapharmacy.com",
-    latitude: 9.049289426194287,
-    longitude: 38.87967035986613,
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 15,
-    name: "Kenema Pharmacy, Nifas Silk",
-    address: "Nifas silk",
-    phone: "+0913072806",
-    email: "info@kenemapharmacy.com",
-    latitude: 9.023348525526949,
-    longitude: 38.78673389162476,
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 16,
-    name: "Kenema Pharmacy, Arada",
-    address: "Addis Ababa",
-    phone: "+0911239250",
-    email: "info@kenemapharmacy.com",
-    latitude: 9.074715,
-    longitude: 38.737810,
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 17,
-    name: "Kenema Pharmacy, No. 19",
-    address: "Addis Ababa",
-    phone: "+0111566018",
-    email: "info@kenemapharmacy.com",
-    latitude: 9.06651960551578,
-    longitude: 38.872324666733924,
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
-  },
-  {
-    id: 18,
-    name: "Kenema Pharmacy, Number 14",
-    address: "Addis Ababa",
-    phone: "+0932354518",
-    email: "info@kenemapharmacy.com",
-    latitude: 9.059569686802346,
-    longitude: 38.71989604398679,
-    isOpen: true,
-    hours: "8:00 AM - 10:00 PM"
   }
 ])
+
+// Set first location as default selected
+selectedLocation.value = locations.value[0]
 
 const filteredLocations = computed(() => {
   if (!searchQuery.value) return locations.value
@@ -223,57 +82,56 @@ const mapCenter = computed(() => {
       longitude: selectedLocation.value.longitude
     }
   }
-  
-  const avgLat = locations.value.reduce((sum, loc) => sum + loc.latitude, 0) / locations.value.length
-  const avgLng = locations.value.reduce((sum, loc) => sum + loc.longitude, 0) / locations.value.length
-  
   return {
-    latitude: avgLat,
-    longitude: avgLng
+    latitude: 9.0265,
+    longitude: 38.7967
   }
 })
 
 const selectLocation = (location) => {
   selectedLocation.value = location
+  console.log('Selected:', location.name)
 }
 
-const clearSelection = () => {
-  selectedLocation.value = null
-}
-
-const navigateToLocation = (location) => {
-  const url = `https://www.google.com/maps/dir/?api=1&destination=${location.latitude},${location.longitude}`
-  window.open(url, '_blank')
+const navigateToLocation = (location = selectedLocation.value) => {
+  if (!location) return
+  
+  // Create Google Maps navigation URL
+  const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${location.latitude},${location.longitude}&destination_place_id=${encodeURIComponent(location.name)}`
+  
+  // Open in new tab
+  window.open(googleMapsUrl, '_blank')
 }
 </script>
 
 <template>
   <div id="Locations" class="bg-orange-500 w-full py-20">
-    <div class="max-w-[1296px] mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Header -->
+    <div class="max-w-[1296px] mx-auto px-4">
       <div class="text-center mb-12">
         <h2 class="text-4xl font-bold text-white mb-4">Locations</h2>
       </div>
 
-      <!-- Main Content -->
       <div class="flex flex-col lg:flex-row gap-6">
-        <!-- Map Section (Left Side) -->
-        <div class="lg:w-2/3 w-full">
+        <!-- Map Section -->
+        <div class="lg:w-2/3 w-full relative">
           <div class="bg-white rounded-lg shadow-lg overflow-hidden h-[500px]">
             <Map
               :latitude="mapCenter.latitude"
               :longitude="mapCenter.longitude"
             />
-            <!-- <div class="absolute bottom-4 right-4 bg-orange-500 text-white px-4 py-2 rounded">
+            <button 
+              @click="navigateToLocation()"
+              class="absolute bottom-4 right-4 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded transition-colors cursor-pointer"
+            >
               Navigate
-            </div> -->
+            </button>
           </div>
         </div>
 
-        <!-- Search and List Section (Right Side) -->
+        <!-- Location List -->
         <div class="lg:w-1/3 w-full">
           <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <!-- Search Bar -->
+            <!-- Search -->
             <div class="p-4 border-b">
               <div class="relative">
                 <input
@@ -286,33 +144,41 @@ const navigateToLocation = (location) => {
               </div>
             </div>
 
-            <!-- Location List -->
+            <!-- List -->
             <div class="max-h-[400px] overflow-y-auto">
               <div
-                v-for="(location, index) in filteredLocations.slice(0, 10)"
+                v-for="(location, index) in filteredLocations"
                 :key="location.id"
                 @click="selectLocation(location)"
-                :class="[
-                  'p-4 border-b cursor-pointer hover:bg-gray-50 transition-colors',
-                  selectedLocation?.id === location.id ? 'bg-orange-100' : '',
-                  index === 0 ? 'bg-orange-500 text-white' : 'text-gray-800'
-                ]"
+                @dblclick="navigateToLocation(location)"
+                class="p-4 border-b cursor-pointer transition-colors"
+                :class="selectedLocation?.id === location.id ? 'bg-orange-500 text-white' : 'hover:bg-gray-50'"
               >
                 <div class="flex items-center gap-3">
-                  <div :class="[
-                    'w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold',
-                    index === 0 ? 'bg-white text-orange-500' : 'bg-orange-500 text-white'
-                  ]">
+                  <div 
+                    class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold"
+                    :class="selectedLocation?.id === location.id ? 'bg-white text-orange-500' : 'bg-orange-500 text-white'"
+                  >
                     {{ index + 1 }}
                   </div>
                   <div class="flex-1">
                     <div class="font-semibold text-sm">{{ location.name }}</div>
-                    <div :class="[
-                      'text-xs',
-                      index === 0 ? 'text-orange-100' : 'text-gray-500'
-                    ]">
+                    <div 
+                      class="text-xs"
+                      :class="selectedLocation?.id === location.id ? 'text-orange-100' : 'text-gray-500'"
+                    >
                       {{ location.address }}
                     </div>
+                  </div>
+                  <div 
+                    v-if="selectedLocation?.id === location.id"
+                    @click.stop="navigateToLocation(location)"
+                    class="text-white hover:text-orange-200 cursor-pointer"
+                    title="Navigate to this location"
+                  >
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 4m0 13V4m0 0L9 7"></path>
+                    </svg>
                   </div>
                 </div>
               </div>
@@ -335,4 +201,6 @@ p, span {
   font-family: "Ubuntu", sans-serif;
 }
 </style>
+
+
 

@@ -1,244 +1,258 @@
 <template>
-  <div class="bg-[#FFFAF5] flex sm:h-[961px] w-full text-white items-center">
-    <div id="news" class="w-3/4 h-3/4 mx-auto flex flex-col justify-between text-black">
-      <div class="w-full flex text-center font-bold text-2xl">
-        Latest Highlights
+  <section class="bg-gradient-to-br from-orange-50 to-orange-100 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Latest News & Updates</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Stay informed with the latest developments, achievements, and announcements from Kenema Pharmacies
+        </p>
       </div>
 
-      <!-- Carousel Container -->
-      <div class="relative w-full sm:w-9/10 sm:h-[651px] overflow-hidden">
-        <div class="flex transition-transform duration-500 ease-in-out h-full"
-          :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
-          <!-- Slide 1 -->
-          <div class="w-full flex-shrink-0 flex gap-2 justify-around">
-            <div class="w-full sm:w-2/5 h-full flex flex-col gap-3 text-black bg-[#FFF5EC] p-4">
-              <div class="flex justify-between">
-                <span class="text-sm p-1 font-bold">ቁጥር 3 ስታዲየም ቅርንጫፍ</span>
-                <span>May 14</span>
-              </div>
-              <p class="text-justify">
-                ከነማ ቁጥር 3 ስታዲየም ቅርንጫፍ ለድርጅቱ መድሃኒት የሚያቀርብ የከተማውን የልማት ተጋሪነት ስሜት
-                ባደረባቸው በመድሃኒት አቅራቢ ባለሃብቶች የእድሣት ወጪዉ የተሸፈነው ፋርማሲ የድርጅቱ የቦርድ አባላት እና
-                ባለድርሻ አካላት በተገኙበት ተመርቆ ለአገልግሎት ዋለ
-              </p>
-              <img src="/src/assets/img/highlight.svg" alt="" class="flex-1 object-cover" />
-              <button class="bg-[#F18A2D] text-center w-1/4 h-8 rounded-sm ml-auto" @click="readMore('stadium-branch')">Read more</button>
+      <!-- Featured Article -->
+      <div class="mb-12">
+        <article class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+          <div class="md:flex">
+            <div class="md:w-1/2">
+              <img 
+                :src="featuredArticle.image" 
+                :alt="featuredArticle.title"
+                class="w-full h-64 md:h-full object-cover"
+              />
             </div>
-            <div class="w-full sm:w-2/5 h-full flex flex-col gap-3 text-black bg-[#FFF5EC] p-4">
-              <div class="flex justify-between">
-                <span class="text-sm p-1 font-bold">የሰንሰለት ፕሮጀክት አጋር ድርጅቶች ከነማን ጎበኙ።</span>
-                <span>April 20</span>
+            <div class="md:w-1/2 p-8">
+              <div class="flex items-center mb-4">
+                <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">Featured</span>
+                <span class="text-gray-500 text-sm ml-4">{{ featuredArticle.date }}</span>
               </div>
-              <p class="text-justify">
-                በአዲስ አበባ ዩኒቨርሲቲ የፋርማሲ ት/ቤት መሪነት የጤና አቅርቦት ሰንሰለት አስተዳደር እና ትምህርት ላይ
-                የአቅም ግንባታ ስራ እየሰራ ያለው የሰንሰለት ፕሮጀክት ባለፉት 6 ወራት ከ120 በላይ ለሚሆኑ የከነማ
-                ፋርማሲ ባለሙያዎች የአቅም ግንባታ ስልጠና የሰጠ ሲሆን፣
-              </p>
-              <img src="/src/assets/img/hightight2.svg" alt="" class="flex-1 object-cover" />
-              <button class="bg-[#F18A2D] text-center w-1/4 h-8 rounded-sm ml-auto" @click="readMore('chain-project')">Read more</button>
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ featuredArticle.title }}</h3>
+              <p class="text-gray-600 mb-6 leading-relaxed">{{ featuredArticle.excerpt }}</p>
+              <button 
+                @click="openArticle(featuredArticle)"
+                class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200"
+              >
+                Read Full Story
+              </button>
             </div>
           </div>
-
-          <!-- Slide 2
-          <div class="w-full flex-shrink-0 flex gap-2 justify-around">
-            <div class="w-full sm:w-2/5 h-full flex flex-col gap-3 text-black bg-[#FFF5EC] p-4">
-              <div class="flex justify-between">
-                <span class="text-sm p-1 font-bold">የአዲስ ቅርንጫፍ መክፈት</span>
-                <span>March 15</span>
-              </div>
-              <p class="text-justify">
-                የከነማ ፋርማሲዎች ድርጅት በአዲስ አበባ ከተማ አዲስ ቅርንጫፍ መክፈቱን አስታወቀ። ይህ ቅርንጫፍ ለህብረተሰቡ
-                የተሻለ የመድሃኒት አገልግሎት ለመስጠት ታስቦ የተዘጋጀ ሲሆን፣ ዘመናዊ መሳሪያዎችና ባለሙያዎች ይገኛሉ።
-              </p>
-              <img src="/src/assets/img/highlight.svg" alt="" class="flex-1 object-cover" />
-              <button class="bg-[#F18A2D] text-center w-1/4 h-8 rounded-sm ml-auto" @click="readMore('new-branch')">Read more</button>
-            </div>
-            <div class="w-full sm:w-2/5 h-full flex flex-col gap-3 text-black bg-[#FFF5EC] p-4">
-              <div class="flex justify-between">
-                <span class="text-sm p-1 font-bold">የጤና ትምህርት ፕሮግራም</span>
-                <span>February 28</span>
-              </div>
-              <p class="text-justify">
-                ለህብረተሰቡ የጤና ትምህርት ለመስጠት የተዘጋጀው ፕሮግራም በተሳካ ሁኔታ ተጠናቋል። በዚህ ፕሮግራም
-                ከ500 በላይ ተሳታፊዎች የተሳተፉ ሲሆን፣ የመድሃኒት አጠቃቀምና የጤና ጥበቃ ትምህርት ተሰጥቷል።
-              </p>
-              <img src="/src/assets/img/hightight2.svg" alt="" class="flex-1 object-cover" />
-              <button class="bg-[#F18A2D] text-center w-1/4 h-8 rounded-sm ml-auto" @click="readMore('health-education')">Read more</button>
-            </div>
-          </div> -->
-
-          <!-- Slide 3 -->
-          <div class="w-full flex-shrink-0 flex gap-2 justify-around">
-            <div class="w-full sm:w-2/5 h-full flex flex-col gap-3 text-black bg-[#FFF5EC] p-4">
-              <div class="flex justify-between">
-                <span class="text-sm p-1 font-bold">የአዲስ ቴክኖሎጂ መተግበር</span>
-                <span>January 10</span>
-              </div>
-              <p class="text-justify">
-                Today marks the official launch of our infrastructure development project for
-                #Kenema_Pharmacies_Enterprise (G+2) at Nifas Silk Lafto, Addis Ababa, Ethiopia!
-
-                The construction is scheduled to be completed within 2 months, bringing to life a new Center of
-                Excellence in Community Pharmacy Services. This will be the first of its kind—offering comprehensive and
-                essential pharmacy services tailored to meet community health needs.
-
-                With a strong commitment to healthcare access, innovation, and excellence, Kenema Pharmacies is proud to
-                take this important step forward.
-                We build the future of pharmacy—together!
-
-              </p>
-              <img src="/src/assets/img/SefieTractor.jpg" alt="" class="flex-1 object-cover" />
-              <button class="bg-[#F18A2D] text-center w-1/4 h-8 rounded-sm ml-auto" @click="readMore('infrastructure-project')">Read more</button>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Navigation Arrows -->
-        <button @click="prevSlide"
-          class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-[#F18A2D] text-white p-2 rounded-full hover:bg-orange-600 transition-colors">
-          ←
-        </button>
-        <button @click="nextSlide"
-          class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-[#F18A2D] text-white p-2 rounded-full hover:bg-orange-600 transition-colors">
-          →
-        </button>
-
-        <!-- Dots Indicator -->
-        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-          <button v-for="(slide, index) in 3" :key="index" @click="goToSlide(index)" :class="[
-            'w-3 h-3 rounded-full transition-colors',
-            currentSlide === index ? 'bg-[#F18A2D]' : 'bg-gray-300'
-          ]"></button>
-        </div>
+        </article>
       </div>
-    </div>
 
-    <!-- Modal for full article -->
-    <div v-if="showModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div class="bg-white rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto">
-        <div class="p-6">
-          <div class="flex justify-between items-start mb-4">
-            <div>
-              <h2 class="text-2xl font-bold text-[#363940]">{{ selectedArticle?.title }}</h2>
-              <p class="text-gray-500 text-sm">{{ selectedArticle?.date }}</p>
+      <!-- News Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <article 
+          v-for="article in regularArticles" 
+          :key="article.id"
+          class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+        >
+          <div class="relative">
+            <img 
+              :src="article.image" 
+              :alt="article.title"
+              class="w-full h-48 object-cover"
+            />
+            <div class="absolute top-4 left-4">
+              <span :class="getCategoryClass(article.category)" class="px-3 py-1 rounded-full text-xs font-medium">
+                {{ article.category }}
+              </span>
             </div>
-            <button @click="closeModal" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
           </div>
           
-          <img :src="selectedArticle?.image" alt="" class="w-full h-64 object-cover rounded-lg mb-4" />
-          
-          <div class="text-gray-700 leading-relaxed whitespace-pre-line">
-            {{ selectedArticle?.content }}
-          </div>
-          
-          <div class="mt-6 flex justify-end">
-            <button @click="closeModal" class="bg-[#F18A2D] text-white px-6 py-2 rounded hover:bg-orange-600 transition-colors">
-              Close
+          <div class="p-6">
+            <div class="flex items-center text-sm text-gray-500 mb-3">
+              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
+              </svg>
+              {{ article.date }}
+            </div>
+            
+            <h3 class="text-lg font-semibold text-gray-900 mb-3 line-clamp-2">{{ article.title }}</h3>
+            <p class="text-gray-600 text-sm mb-4 line-clamp-3">{{ article.excerpt }}</p>
+            
+            <button 
+              @click="openArticle(article)"
+              class="text-orange-500 hover:text-orange-600 font-medium text-sm flex items-center transition-colors duration-200"
+            >
+              Read More
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
             </button>
           </div>
+        </article>
+      </div>
+
+      <!-- Load More Button -->
+      <div class="text-center mt-12">
+        <button class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-8 py-3 rounded-lg font-medium transition-colors duration-200">
+          Load More Articles
+        </button>
+      </div>
+    </div>
+
+    <!-- Article Modal -->
+    <div v-if="showModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+      <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+        <div class="relative">
+          <img 
+            :src="selectedArticle?.image" 
+            :alt="selectedArticle?.title"
+            class="w-full h-64 object-cover"
+          />
+          <button 
+            @click="closeModal" 
+            class="absolute top-4 right-4 bg-white bg-opacity-90 hover:bg-opacity-100 text-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        
+        <div class="p-8 overflow-y-auto max-h-[calc(90vh-16rem)]">
+          <div class="flex items-center mb-4">
+            <span :class="getCategoryClass(selectedArticle?.category)" class="px-3 py-1 rounded-full text-sm font-medium">
+              {{ selectedArticle?.category }}
+            </span>
+            <span class="text-gray-500 text-sm ml-4">{{ selectedArticle?.date }}</span>
+          </div>
+          
+          <h1 class="text-3xl font-bold text-gray-900 mb-6">{{ selectedArticle?.title }}</h1>
+          
+          <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+            <p v-for="paragraph in selectedArticle?.content" :key="paragraph" class="mb-4">
+              {{ paragraph }}
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed } from 'vue'
 
-const currentSlide = ref(0)
-const totalSlides = 3
-let autoSlideInterval = null
 const showModal = ref(false)
 const selectedArticle = ref(null)
 
-const articles = {
-  'stadium-branch': {
-    title: 'ቁጥር 3 ስታዲየም ቅርንጫፍ',
-    date: 'May 14',
-    content: `ከነማ ቁጥር 3 ስታዲየም ቅርንጫፍ ለድርጅቱ መድሃኒት የሚያቀርብ የከተማውን የልማት ተጋሪነት ስሜት ባደረባቸው በመድሃኒት አቅራቢ ባለሃብቶች የእድሣት ወጪዉ የተሸፈነው ፋርማሲ የድርጅቱ የቦርድ አባላት እና ባለድርሻ አካላት በተገኙበት ተመርቆ ለአገልግሎት ዋለ።
-    
-    ይህ አዲስ ቅርንጫፍ ለአካባቢው ህብረተሰብ የተሻለ የመድሃኒት አገልግሎት ለመስጠት የተዘጋጀ ሲሆን፣ ዘመናዊ መሳሪያዎችና ባለሙያዎች ይገኛሉ። ቅርንጫፉ በሳምንት 7 ቀን 24 ሰዓት አገልግሎት ይሰጣል።`,
-    image: '/src/assets/img/highlight.svg'
+const articles = ref([
+  {
+    id: 1,
+    title: "New Kenema Pharmacy Branch Opens in Stadium Area",
+    excerpt: "Our latest branch at Stadium No. 3 brings modern pharmaceutical services to the community with state-of-the-art facilities and expert pharmacists.",
+    content: [
+      "Kenema Pharmacy is proud to announce the opening of our newest branch at Stadium No. 3, marking another milestone in our commitment to accessible healthcare.",
+      "This new facility features modern pharmaceutical equipment, a comprehensive medication inventory, and consultation services provided by our experienced pharmacists.",
+      "The branch operates 24/7 to ensure community members have access to essential medications and health services whenever needed.",
+      "We thank our partners and stakeholders who made this expansion possible, furthering our mission to serve the healthcare needs of our community."
+    ],
+    date: "December 15, 2024",
+    category: "Expansion",
+    image: "/src/assets/img/highlight.svg",
+    featured: true
   },
-  'chain-project': {
-    title: 'የሰንሰለት ፕሮጀክት አጋር ድርጅቶች ከነማን ጎበኙ',
-    date: 'April 20',
-    content: `በአዲስ አበባ ዩኒቨርሲቲ የፋርማሲ ት/ቤት መሪነት የጤና አቅርቦት ሰንሰለት አስተዳደር እና ትምህርት ላይ የአቅም ግንባታ ስራ እየሰራ ያለው የሰንሰለት ፕሮጀክት ባለፉት 6 ወራት ከ120 በላይ ለሚሆኑ የከነማ ፋርማሲ ባለሙያዎች የአቅም ግንባታ ስልጠና የሰጠ ሲሆን፣
-    
-    ይህ ፕሮጀክት የመድሃኒት አቅርቦት ሰንሰለትን ማሻሻል እና የባለሙያዎችን አቅም ማጎልበት ዋና ዓላማ ያደረገ ነው። በዚህ ስልጠና የተሳተፉ ባለሙያዎች የተሻለ አገልግሎት መስጠት ይችላሉ።`,
-    image: '/src/assets/img/hightight2.svg'
+  {
+    id: 2,
+    title: "Partnership with Addis Ababa University Pharmacy School",
+    excerpt: "Strengthening healthcare education through our collaboration with AAU's Pharmacy School, providing training to over 120 professionals.",
+    content: [
+      "Our partnership with Addis Ababa University's School of Pharmacy has reached a significant milestone with the completion of capacity building training for over 120 Kenema pharmacy professionals.",
+      "The 6-month program focused on supply chain management and pharmaceutical education, enhancing the skills of our workforce.",
+      "This collaboration represents our commitment to continuous professional development and maintaining the highest standards in pharmaceutical care.",
+      "The training program will continue to benefit our staff and ultimately improve the quality of service we provide to our customers."
+    ],
+    date: "December 10, 2024",
+    category: "Education",
+    image: "/src/assets/img/hightight2.svg"
   },
-  'new-branch': {
-    title: 'የአዲስ ቅርንጫፍ መክፈት',
-    date: 'March 15',
-    content: `የከነማ ፋርማሲዎች ድርጅት በአዲስ አበባ ከተማ አዲስ ቅርንጫፍ መክፈቱን አስታወቀ። ይህ ቅርንጫፍ ለህብረተሰቡ የተሻለ የመድሃኒት አገልግሎት ለመስጠት ታስቦ የተዘጋጀ ሲሆን፣ ዘመናዊ መሳሪያዎችና ባለሙያዎች ይገኛሉ።
-    
-    አዲሱ ቅርንጫፍ በዘመናዊ ቴክኖሎጂ የተገነባ ሲሆን፣ የመድሃኒት ማከማቻ፣ የምክር አገልግሎት እና የጤና ምርመራ አገልግሎቶችን ያካትታል። ቅርንጫፉ በሳምንት 7 ቀን አገልግሎት ይሰጣል።`,
-    image: '/src/assets/img/highlight.svg'
+  {
+    id: 3,
+    title: "Infrastructure Development Project Launch",
+    excerpt: "Construction begins on our new Center of Excellence in Community Pharmacy Services at Nifas Silk Lafto, set to complete in 2 months.",
+    content: [
+      "Today marks the official launch of our infrastructure development project for Kenema Pharmacies Enterprise (G+2) at Nifas Silk Lafto, Addis Ababa.",
+      "The construction is scheduled to be completed within 2 months, bringing to life a new Center of Excellence in Community Pharmacy Services.",
+      "This will be the first of its kind—offering comprehensive and essential pharmacy services tailored to meet community health needs.",
+      "With a strong commitment to healthcare access, innovation, and excellence, Kenema Pharmacies is proud to take this important step forward. We build the future of pharmacy—together!"
+    ],
+    date: "December 5, 2024",
+    category: "Infrastructure",
+    image: "/src/assets/img/SefieTractor.jpg"
   },
-  'health-education': {
-    title: 'የጤና ትምህርት ፕሮግራም',
-    date: 'February 28',
-    content: `ለህብረተሰቡ የጤና ትምህርት ለመስጠት የተዘጋጀው ፕሮግራም በተሳካ ሁኔታ ተጠናቋል። በዚህ ፕሮግራም ከ500 በላይ ተሳታፊዎች የተሳተፉ ሲሆን፣ የመድሃኒት አጠቃቀምና የጤና ጥበቃ ትምህርት ተሰጥቷል።
-    
-    ፕሮግራሙ የተለያዩ የጤና ጉዳዮችን ያካተተ ሲሆን፣ የመድሃኒት ትክክለኛ አጠቃቀም፣ የበሽታ መከላከያ ዘዴዎች እና የመጀመሪያ እርዳታ ስልጠናዎችን ያካትታል። ተሳታፊዎች በጣም ተጠቃሚ መሆናቸውን ገልጸዋል።`,
-    image: '/src/assets/img/hightight2.svg'
+  {
+    id: 4,
+    title: "Community Health Education Program Success",
+    excerpt: "Over 500 participants benefited from our comprehensive health education program focusing on medication safety and disease prevention.",
+    content: [
+      "Our community health education program has successfully concluded with over 500 participants gaining valuable knowledge about health and medication management.",
+      "The program covered essential topics including proper medication usage, disease prevention methods, and first aid training.",
+      "Participants expressed high satisfaction with the program, noting the practical value of the information provided.",
+      "This initiative reflects our commitment to not just providing medications, but also educating our community about health and wellness."
+    ],
+    date: "November 28, 2024",
+    category: "Community",
+    image: "/src/assets/img/hightight2.svg"
   },
-  'infrastructure-project': {
-    title: 'የአዲስ ቴክኖሎጂ መተግበር',
-    date: 'January 10',
-    content: `Today marks the official launch of our infrastructure development project for Kenema Pharmacies Enterprise (G+2) at Nifas Silk Lafto, Addis Ababa, Ethiopia!
-
-    The construction is scheduled to be completed within 2 months, bringing to life a new Center of Excellence in Community Pharmacy Services. This will be the first of its kind—offering comprehensive and essential pharmacy services tailored to meet community health needs.
-
-    With a strong commitment to healthcare access, innovation, and excellence, Kenema Pharmacies is proud to take this important step forward. We build the future of pharmacy—together!`,
-    image: '/src/assets/img/SefieTractor.jpg'
+  {
+    id: 5,
+    title: "Digital Health Services Integration",
+    excerpt: "Introducing new digital services including online consultations, prescription management, and health monitoring tools.",
+    content: [
+      "Kenema Pharmacies is embracing digital transformation with the launch of our comprehensive digital health services platform.",
+      "Our new services include online pharmaceutical consultations, digital prescription management, and health monitoring tools.",
+      "Customers can now access our services remotely, making healthcare more convenient and accessible.",
+      "This digital initiative represents our commitment to innovation and meeting the evolving needs of our community in the digital age."
+    ],
+    date: "November 20, 2024",
+    category: "Technology",
+    image: "/src/assets/img/highlight.svg"
   }
+])
+
+const featuredArticle = computed(() => articles.value.find(article => article.featured))
+const regularArticles = computed(() => articles.value.filter(article => !article.featured))
+
+const getCategoryClass = (category) => {
+  const classes = {
+    'Expansion': 'bg-green-100 text-green-800',
+    'Education': 'bg-blue-100 text-blue-800',
+    'Infrastructure': 'bg-purple-100 text-purple-800',
+    'Community': 'bg-yellow-100 text-yellow-800',
+    'Technology': 'bg-indigo-100 text-indigo-800'
+  }
+  return classes[category] || 'bg-gray-100 text-gray-800'
 }
 
-const nextSlide = () => {
-  currentSlide.value = (currentSlide.value + 1) % totalSlides
-}
-
-const prevSlide = () => {
-  currentSlide.value = currentSlide.value === 0 ? totalSlides - 1 : currentSlide.value - 1
-}
-
-const goToSlide = (index) => {
-  currentSlide.value = index
-}
-
-const readMore = (articleId) => {
-  selectedArticle.value = articles[articleId]
+const openArticle = (article) => {
+  selectedArticle.value = article
   showModal.value = true
-  stopAutoSlide() // Stop auto-slide when modal is open
+  document.body.style.overflow = 'hidden'
 }
 
 const closeModal = () => {
   showModal.value = false
   selectedArticle.value = null
-  startAutoSlide() // Resume auto-slide when modal is closed
+  document.body.style.overflow = 'auto'
 }
-
-const startAutoSlide = () => {
-  autoSlideInterval = setInterval(() => {
-    nextSlide()
-  }, 10000)
-}
-
-const stopAutoSlide = () => {
-  if (autoSlideInterval) {
-    clearInterval(autoSlideInterval)
-    autoSlideInterval = null
-  }
-}
-
-onMounted(() => {
-  startAutoSlide()
-})
-
-onUnmounted(() => {
-  stopAutoSlide()
-})
 </script>
+
+<style scoped>
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.prose {
+  max-width: none;
+}
+</style>
