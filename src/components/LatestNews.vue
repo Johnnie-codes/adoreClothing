@@ -7,6 +7,19 @@
         <p class="text-lg text-gray-600 max-w-2xl mx-auto">
           Stay informed with the latest developments, achievements, and announcements from Kenema Pharmacies
         </p>
+        
+        <!-- PDF Download Button -->
+        <div class="mt-8">
+          <button 
+            @click="downloadPDF"
+            class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 flex items-center mx-auto shadow-lg hover:shadow-xl"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            Download KPE Strategic Roadmap (2018- 2024EC) (PDF)
+          </button>
+        </div>
       </div>
 
       <!-- Featured Article -->
@@ -27,12 +40,23 @@
               </div>
               <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ featuredArticle.title }}</h3>
               <p class="text-gray-600 mb-6 leading-relaxed">{{ featuredArticle.excerpt }}</p>
-              <button 
-                @click="openArticle(featuredArticle)"
-                class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200"
-              >
-                Read Full Story
-              </button>
+              <div class="flex gap-4">
+                <button 
+                  @click="openArticle(featuredArticle)"
+                  class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200"
+                >
+                  Read Full Story
+                </button>
+                <button 
+                  @click="downloadPDF"
+                  class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-medium transition-colors duration-200 flex items-center"
+                >
+                  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"></path>
+                  </svg>
+                  Download PDF
+                </button>
+              </div>
             </div>
           </div>
         </article>
@@ -135,6 +159,23 @@ import { ref, computed } from 'vue'
 
 const showModal = ref(false)
 const selectedArticle = ref(null)
+
+// PDF download function
+const downloadPDF = () => {
+  // Create a link element
+  const link = document.createElement('a')
+  
+  // Set the PDF file path to your actual file
+  link.href = '/src/assets/Kenema Pharmacy Enterprises Strategic Roadmap (2018- 2024EC).pdf'
+  
+  // Set the download attribute with desired filename
+  link.download = 'Kenema-Pharmacy-Enterprises-Strategic-Roadmap-2018-2024EC.pdf'
+  
+  // Append to body, click, and remove
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+}
 
 const articles = ref([
   {
