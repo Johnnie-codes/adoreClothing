@@ -56,7 +56,7 @@
                   </svg>
                   Download PDF
                 </button> -->
-                
+
               </div>
             </div>
           </div>
@@ -167,7 +167,7 @@ const downloadPDF = () => {
   const link = document.createElement('a')
   
   // Set the PDF file path to your actual file
-  link.href = '/src/assets/Kenema Pharmacy Enterprises Strategic Roadmap (2018- 2024EC).pdf'
+  link.href = '/src/assets/Final_report_KPE_strategic_roadmap_July2025.pdf'
   
   // Set the download attribute with desired filename
   link.download = 'Kenema-Pharmacy-Enterprises-Strategic-Roadmap-2018-2024EC.pdf'
