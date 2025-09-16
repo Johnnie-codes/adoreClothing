@@ -11,7 +11,7 @@
         <div class="bg-white   overflow-hidden hover:shadow-xl transition-shadow duration-300">
           <div class="aspect-w-3 aspect-h-4 bg-gray-200">
             <img
-              src="/src/assets/img/birhanu.png"
+              src="/img/birhanu.png"
               class="w-full h-80 object-cover object-center"
               alt="Ashenafi Hirco"
             />
@@ -26,7 +26,7 @@
         <div class="bg-white   overflow-hidden hover:shadow-xl transition-shadow duration-300">
           <div class="aspect-w-3 aspect-h-4 bg-gray-200">
             <img
-              src="/src/assets/img/rawda.png"
+              src="/img/rawda.png"
               class="w-full h-80 object-cover object-center"
               alt="Dagne"
             />
@@ -41,7 +41,7 @@
         <div class="bg-white   overflow-hidden hover:shadow-xl transition-shadow duration-300">
           <div class="aspect-w-3 aspect-h-4 bg-gray-200">
             <img
-              src="/src/assets/img/solomon.png"
+              src="/img/solomon.png"
               class="w-full h-80 object-cover object-center"
               alt="Asmamaw"
             />

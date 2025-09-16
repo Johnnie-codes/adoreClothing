@@ -6,7 +6,7 @@
 <style scoped>
 .containe {
   /* max-height: fit-content; */
-  background-image: url("/src/assets/img/brandss.svg");
+  background-image: url("/img/brandss.svg");
   /* background-repeat: repeat-y; */
 height: 100px;
   width: 100%;

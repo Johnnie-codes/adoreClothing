@@ -51,7 +51,7 @@ import OurExecutives from './ourExecutives.vue';
 
         <div class="w-full md:w-1/2 h-auto flex flex-col">
           <img
-            src="/src/assets/img/seife.png"
+            src="/img/seife.png"
             class="rounded-lg shadow-md w-full pt-20 h-auto object-cover"
           />
         </div>

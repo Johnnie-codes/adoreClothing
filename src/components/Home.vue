@@ -14,7 +14,7 @@ const scrollToSection = (sectionId) => {
       <div class="max-w-7xl mx-auto flex justify-between items-center">
         <div class="flex items-center gap-2">
           <div class="bg-white rounded-full p-1">
-            <img src="/src/assets/img/Vector.svg" alt="Logo" class="h-6 w-6" />
+            <img src="/img/Vector.svg" alt="Logo" class="h-6 w-6" />
           </div>
           <span class="text-white text-sm">Kenema Pharmacies Enterprise</span>
         </div>

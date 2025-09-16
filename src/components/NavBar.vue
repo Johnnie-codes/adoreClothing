@@ -1,7 +1,7 @@
 <template>
   <nav class="py-4 px-10 md:px-20">
     <div class="container mx-auto flex justify-between">
-      <img class="hidden md:block" src="/src/assets/img/Frame 7.svg" alt="" />
+      <img class="hidden md:block" src="/img/Frame 7.svg" alt="" />
       <div class="hidden md:block">
         <ul class="flex items-center gap-4">
           <li>
@@ -35,7 +35,7 @@
           >
             pharmacy
             <!-- <img
-              src="/src/assets/img/Link.svg"
+              src="/img/Link.svg"
               class="hover:bg-green-500"
               alt=""
             /> -->
@@ -94,7 +94,7 @@
         <li><a href="#" class="text-gray-400 hover:text-white">services</a></li>
         <button class="hover:bg-green-500">
           <img
-            src="/src/assets/img/Link.svg"
+            src="/img/Link.svg"
             class="hover:bg-green-500"
             alt=""
           />

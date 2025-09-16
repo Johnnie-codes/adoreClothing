@@ -8,7 +8,7 @@
           class="w-[90%] md:w-[45%] lg:w-[16.5rem] h-auto bg-white flex flex-col rounded-lg shadow-md m-4"
         >
           <img
-            src="/src/assets/img/exec.svg"
+            src="/img/exec.svg"
             class="h-auto w-full md:w-[216.75px] md:h-[329px] mx-auto my-auto"
             alt=""
           />
@@ -63,7 +63,7 @@
           class="w-[90%] md:w-[45%] lg:w-[16.5rem] h-auto bg-white flex flex-col rounded-lg shadow-md m-4"
         >
           <img
-            src="/src/assets/img/Rectangle 13 (1).svg"
+            src="/img/Rectangle 13 (1).svg"
             class="h-auto w-full md:w-[216.75px] md:h-[329px] mx-auto my-auto"
             alt=""
           />

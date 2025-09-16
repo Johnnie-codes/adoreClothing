@@ -175,7 +175,7 @@ const articles = ref([
     ],
     date: "December 15, 2024",
     category: "Expansion",
-    image: "/src/assets/img/highlight.svg",
+    image: "/img/highlight.svg",
     featured: true
   },
   {
@@ -190,7 +190,7 @@ const articles = ref([
     ],
     date: "December 10, 2024",
     category: "Education",
-    image: "/src/assets/img/hightight2.svg"
+    image: "/img/hightight2.svg"
   },
   {
     id: 3,
@@ -204,7 +204,7 @@ const articles = ref([
     ],
     date: "December 5, 2024",
     category: "Infrastructure",
-    image: "/src/assets/img/SefieTractor.jpg"
+    image: "/img/SefieTractor.jpg"
   },
   {
     id: 4,
@@ -218,7 +218,7 @@ const articles = ref([
     ],
     date: "November 28, 2024",
     category: "Community",
-    image: "/src/assets/img/hightight2.svg"
+    image: "/img/hightight2.svg"
   },
   {
     id: 5,
@@ -232,7 +232,7 @@ const articles = ref([
     ],
     date: "November 20, 2024",
     category: "Technology",
-    image: "/src/assets/img/highlight.svg"
+    image: "/img/highlight.svg"
   },
   {
     id: 6,
@@ -254,7 +254,7 @@ const articles = ref([
 ],
     date: "May 3, 2025",
     category: "Wholesale ",
-    image: "/src/assets/img/kenemawholesale.jpg",
+    image: "/img/kenemawholesale.jpg",
    
   }
 ])

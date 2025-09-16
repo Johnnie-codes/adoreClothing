@@ -8,7 +8,7 @@ import SomeCounts from './SomeCounts.vue';
     <div id="AboutUS" class="max-w-[1296px] gap-16 flex flex-col mx-auto py-20 px-4 sm:px-6 lg:px-8 space-y-10">
       <div class="text-[#363940] text-4xl font-bold">About Kenema</div>
       <div class="flex flex-col md:flex-row items-center md:space-x-8">
-        <img src="/src/assets/img/AboutKenema.png" class="w-full md:w-[50%]" alt="" />
+        <img src="/img/AboutKenema.png" class="w-full md:w-[50%]" alt="" />
         <p class="text-[#666666] text-base md:text-justify md:w-[50%]">
           At Kenema pharmacy, we are dedicated to providing our community with
           the highest quality pharmaceutical care and customer service. Our
