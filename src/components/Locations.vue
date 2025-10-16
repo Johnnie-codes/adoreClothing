@@ -638,6 +638,8 @@ const navigateToLocation = (location = selectedLocation.value) => {
             <Map
               :latitude="mapCenter.latitude"
               :longitude="mapCenter.longitude"
+              :locations="filteredLocations"
+              @marker-click="selectLocation"
             />
             <button 
               @click="navigateToLocation()"

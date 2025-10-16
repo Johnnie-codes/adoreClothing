@@ -12,7 +12,12 @@ const props = defineProps({
     type: Number,
     // default: 38.78508250245778,
   },
+  locations: {
+    type: Array,
+    default: () => [],
+  },
 });
+const emit = defineEmits(["marker-click"]);
 
 const GOOGLE_MAPS_API_KEY = "AIzaSyCIA2P9qeYtaXVPJHlGU5CF-mJNE8hpCV0";
 
@@ -39,6 +44,8 @@ const mapDiv = ref(null);
 let map = ref(null);
 let clickListener = null;
 let marker = null;
+let markers = [];
+let infoWindow = null;
 
 onMounted(async () => {
   await loader.load();
@@ -50,6 +57,9 @@ onMounted(async () => {
     position: currPos.value,
     map: map.value,
   });
+  infoWindow = new google.maps.InfoWindow();
+  updateLocationMarkers();
+  fitBoundsToMarkers();
 });
 
 onUnmounted(async () => {
@@ -70,6 +80,62 @@ watch([map, currPos, otherPos], () => {
     marker.setPosition(currPos.value);
   }
 });
+
+watch(
+  () => props.locations,
+  () => {
+    updateLocationMarkers();
+    fitBoundsToMarkers();
+  },
+  { deep: true }
+);
+
+watch(currPos, (pos) => {
+  if (map.value && pos?.lat && pos?.lng) {
+    map.value.setCenter(pos);
+    marker.setPosition(pos);
+  }
+});
+
+function clearLocationMarkers() {
+  markers.forEach(m => m.setMap(null));
+  markers = [];
+}
+
+function updateLocationMarkers() {
+  if (!map.value) return;
+  clearLocationMarkers();
+  if (Array.isArray(props.locations) && props.locations.length > 0) {
+    props.locations.forEach((loc) => {
+      if (typeof loc.latitude === 'number' && typeof loc.longitude === 'number') {
+        const m = new google.maps.Marker({
+          position: { lat: loc.latitude, lng: loc.longitude },
+          map: map.value,
+          title: loc.name || '',
+        });
+        m.addListener('click', () => {
+          emit('marker-click', loc);
+          if (infoWindow) {
+            const content = `<div style="font-family: Ubuntu; font-size: 14px;"><strong>${loc.name || ''}</strong><div>${loc.address || ''}</div></div>`;
+            infoWindow.setContent(content);
+            infoWindow.open({ map: map.value, anchor: m });
+          }
+        });
+        markers.push(m);
+      }
+    });
+  }
+}
+
+function fitBoundsToMarkers() {
+  if (!map.value) return;
+  const allMarkers = [...markers];
+  if (marker) allMarkers.push(marker);
+  if (allMarkers.length === 0) return;
+  const bounds = new google.maps.LatLngBounds();
+  allMarkers.forEach(m => bounds.extend(m.getPosition()));
+  map.value.fitBounds(bounds);
+}
 
 const haversineDistance = (pos1, pos2) => {
   const R = 3958.8; // Radius of the Earth in miles
