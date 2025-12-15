@@ -2,16 +2,18 @@
   <section class="bg-gradient-to-br from-orange-50 to-orange-100 py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Header -->
-      <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold text-gray-900 mb-4">Latest News & Updates</h2>
+      <div class="text-center mb-12" data-aos="fade-up">
+        <div class="inline-block bg-orange-100 text-orange-600 px-4 py-1.5 rounded-full text-sm font-semibold mb-4">News & Updates</div>
+        <h2 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-orange-600 mb-4">Latest News & Updates</h2>
         <p class="text-lg text-gray-600 max-w-2xl mx-auto">
           Stay informed with the latest developments, achievements, and announcements from Kenema Pharmacies
         </p>
+        <div class="h-1 w-24 bg-gradient-to-r from-orange-600 to-orange-400 rounded-full mx-auto mt-6"></div>
 
         <!-- PDF Download Button -->
         <div class="mt-8">
           <button @click="downloadPDF"
-            class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 flex items-center mx-auto shadow-lg hover:shadow-xl">
+            class="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200 flex items-center mx-auto shadow-lg hover:shadow-xl ring-1 ring-orange-500/30">
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
@@ -23,23 +25,24 @@
       </div>
 
       <!-- Featured Article -->
-      <div class="mb-12">
-        <article class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+      <div class="mb-12" data-aos="fade-up">
+        <article class="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group">
           <div class="md:flex">
-            <div class="md:w-1/2">
+            <div class="md:w-1/2 relative">
               <img :src="featuredArticle.image" :alt="featuredArticle.title"
-                class="w-full h-64 md:h-full object-cover" />
+                class="w-full h-64 md:h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" />
+              <div class="absolute inset-0 bg-gradient-to-tr from-black/10 to-transparent pointer-events-none"></div>
             </div>
-            <div class="md:w-1/2 p-8">
+            <div class="md:w-1/2 p-8 md:p-10">
               <div class="flex items-center mb-4">
-                <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">Featured</span>
+                <span class="bg-gradient-to-r from-orange-600 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow">Featured</span>
                 <span class="text-gray-500 text-sm ml-4">{{ featuredArticle.date }}</span>
               </div>
               <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ featuredArticle.title }}</h3>
               <p class="text-gray-600 mb-6 leading-relaxed">{{ featuredArticle.excerpt }}</p>
               <div class="flex gap-4">
                 <button @click="openArticle(featuredArticle)"
-                  class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200">
+                  class="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200 shadow">
                   Read Full Story
                 </button>
                 <!-- <button 
@@ -60,12 +63,12 @@
 
       <!-- News Grid -->
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <article v-for="article in regularArticles" :key="article.id"
-          class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+        <article v-for="article in regularArticles" :key="article.id" data-aos="fade-up"
+          class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 ring-1 ring-gray-100 hover:ring-orange-200 group">
           <div class="relative">
-            <img :src="article.image" :alt="article.title" class="w-full h-48 object-cover" />
+            <img :src="article.image" :alt="article.title" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" />
             <div class="absolute top-4 left-4">
-              <span :class="getCategoryClass(article.category)" class="px-3 py-1 rounded-full text-xs font-medium">
+              <span :class="getCategoryClass(article.category)" class="px-3 py-1 rounded-full text-xs font-medium shadow-sm">
                 {{ article.category }}
               </span>
             </div>
@@ -85,7 +88,7 @@
             <p class="text-gray-600 text-sm mb-4 line-clamp-3">{{ article.excerpt }}</p>
 
             <button @click="openArticle(article)"
-              class="text-orange-500 hover:text-orange-600 font-medium text-sm flex items-center transition-colors duration-200">
+              class="text-orange-600 hover:text-orange-700 font-semibold text-sm flex items-center transition-colors duration-200">
               Read More
               <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -98,26 +101,26 @@
       <!-- Load More Button -->
       <div class="text-center mt-12">
         <button
-          class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-8 py-3 rounded-lg font-medium transition-colors duration-200">
+          class="bg-white text-gray-700 px-8 py-3 rounded-xl font-semibold transition-all duration-200 shadow hover:shadow-md border border-gray-200 hover:border-orange-300">
           Load More Articles
         </button>
       </div>
     </div>
 
     <!-- Article Modal -->
-    <div v-if="showModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+    <div v-if="showModal" class="fixed inset-0 bg-black/50 backdrop-blur-[1px] flex items-center justify-center z-50 p-4">
+      <div class="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-xl">
         <div class="relative">
           <img :src="selectedArticle?.image" :alt="selectedArticle?.title" class="w-full h-64 object-cover" />
           <button @click="closeModal"
-            class="absolute top-4 right-4 bg-white bg-opacity-90 hover:bg-opacity-100 text-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200">
+            class="absolute top-4 right-4 bg-white/90 hover:bg-white text-gray-700 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 shadow ring-1 ring-gray-200">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
             </svg>
           </button>
         </div>
 
-        <div class="p-8 overflow-y-auto max-h-[calc(90vh-16rem)]">
+        <div class="p-8 md:p-10 overflow-y-auto max-h-[calc(90vh-16rem)]">
           <div class="flex items-center mb-4">
             <span :class="getCategoryClass(selectedArticle?.category)"
               class="px-3 py-1 rounded-full text-sm font-medium">
@@ -126,7 +129,7 @@
             <span class="text-gray-500 text-sm ml-4">{{ selectedArticle?.date }}</span>
           </div>
 
-          <h1 class="text-3xl font-bold text-gray-900 mb-6">{{ selectedArticle?.title }}</h1>
+          <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6">{{ selectedArticle?.title }}</h1>
 
           <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
             <p v-for="paragraph in selectedArticle?.content" :key="paragraph" class="mb-4">
@@ -263,15 +266,16 @@ const featuredArticle = computed(() => articles.value.find(article => article.fe
 const regularArticles = computed(() => articles.value.filter(article => !article.featured))
 
 const getCategoryClass = (category) => {
+  const key = String(category || '').trim()
   const classes = {
     'Expansion': 'bg-green-100 text-green-800',
     'Education': 'bg-blue-100 text-blue-800',
     'Infrastructure': 'bg-purple-100 text-purple-800',
     'Community': 'bg-yellow-100 text-yellow-800',
     'Technology': 'bg-indigo-100 text-indigo-800',
-    'Wholesale': 'bg-black-100 text-indigo-800'
+    'Wholesale': 'bg-orange-100 text-orange-800'
   }
-  return classes[category] || 'bg-gray-100 text-gray-800'
+  return classes[key] || 'bg-gray-100 text-gray-800'
 }
 
 const openArticle = (article) => {

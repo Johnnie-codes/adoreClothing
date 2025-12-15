@@ -19,7 +19,7 @@ const props = defineProps({
 });
 const emit = defineEmits(["marker-click"]);
 
-const GOOGLE_MAPS_API_KEY = "AIzaSyCIA2P9qeYtaXVPJHlGU5CF-mJNE8hpCV0";
+const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
 const { coords } = useGeolocation();
 // const currPos = computed(() => ({
