@@ -17,7 +17,7 @@
           <div class="hidden md:flex gap-6">
             <a href="#home" class="text-gray-600 hover:text-orange-600 font-medium transition-colors">Home</a>
             <a href="#about" class="text-gray-600 hover:text-orange-600 font-medium transition-colors">About</a>
-            <a href="#services" class="text-gray-600 hover:text-orange-600 font-medium transition-colors">Services</a>
+            <!-- <a href="#services" class="text-gray-600 hover:text-orange-600 font-medium transition-colors">Services</a> -->
             <a href="#banking" class="text-gray-600 hover:text-orange-600 font-medium transition-colors">Banking</a>
             <a href="#news" class="text-gray-600 hover:text-orange-600 font-medium transition-colors">News</a>
             <a href="#contact" class="text-gray-600 hover:text-orange-600 font-medium transition-colors">Contact</a>
