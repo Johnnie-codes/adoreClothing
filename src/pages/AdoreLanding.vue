@@ -11,28 +11,28 @@
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-white shadow-md">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="flex items-center justify-between h-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="flex items-center justify-between h-16 sm:h-20">
           <!-- Logo -->
-          <a href="#" class="text-2xl font-bold text-gray-900 ">ADORE</a>
+          <a href="#" class="text-xl sm:text-2xl font-bold text-gray-900">ADORE</a>
           
           <!-- Desktop Navigation -->
-          <div class="hidden md:flex items-center space-x-8">
-            <a href="#" class="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors">Home</a>
-            <a href="#collection" class="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors">Collection</a>
-            <a href="#products" class="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors">Products</a>
-            <a href="#features" class="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors">Features</a>
-            <a href="#reviews" class="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors">Reviews</a>
-            <button @click="toggleTheme" class="p-2 rounded-full text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
-              <i :class="theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon'"></i>
+          <div class="hidden md:flex items-center space-x-4 lg:space-x-8">
+            <a href="#" class="text-sm sm:text-base text-gray-700 hover:text-gray-900 transition-colors">Home</a>
+            <a href="#collection" class="text-sm sm:text-base text-gray-700 hover:text-gray-900 transition-colors">Collection</a>
+            <a href="#products" class="text-sm sm:text-base text-gray-700 hover:text-gray-900 transition-colors">Products</a>
+            <a href="#features" class="text-sm sm:text-base text-gray-700 hover:text-gray-900 transition-colors">Features</a>
+            <a href="#reviews" class="text-sm sm:text-base text-gray-700 hover:text-gray-900 transition-colors">Reviews</a>
+            <button @click="toggleTheme" class="p-2 rounded-full text-gray-700 hover:bg-gray-100">
+              <i :class="theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon'" class="text-sm sm:text-base"></i>
             </button>
-            <a href="#contact" class="bg-teal-600 hover:bg-teal-500 text-white px-6 py-2 rounded-full transition-colors">Contact</a>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-3 sm:px-6 py-2 rounded-full text-sm sm:text-base transition-colors whitespace-nowrap">Contact</a>
           </div>
           
           <!-- Mobile menu button -->
           <div class="md:hidden flex items-center space-x-4">
             <button @click="toggleTheme" class="p-2 rounded-full text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
-              <i :class="theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon'"></i>
+              <i :class="theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon'" class="text-sm sm:text-base"></i>
             </button>
             <button @click="isMobileMenuOpen = !isMobileMenuOpen" class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
               <i class="fas fa-bars text-2xl"></i>
@@ -57,54 +57,54 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-32 pb-20 bg-gradient-to-r from-gray-50 to-gray-100 relative overflow-hidden border-b border-gray-200">
+    <section id="home" class="pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 bg-gradient-to-r from-gray-50 to-gray-100 relative overflow-hidden border-b border-gray-200">
       <div class="absolute inset-0 opacity-5">
-        <div class="absolute top-20 left-10 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-        <div class="absolute top-40 right-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+        <div class="absolute top-10 sm:top-20 left-4 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+        <div class="absolute top-20 sm:top-40 right-4 sm:right-10 w-48 sm:w-72 h-48 sm:h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
       </div>
 
-      <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           <!-- Hero Content -->
-          <div data-aos="fade-up">
-            <div class="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full mb-6 shadow-sm">
+          <div data-aos="fade-up" class="text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6 shadow-sm text-sm sm:text-base">
               <i class="fas fa-bolt"></i>
               <span class="font-semibold">NEW DROP JUST LANDED</span>
             </div>
 
-            <h1 class="text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 mb-4 sm:mb-6 leading-tight">
               Fast Fashion for <span class="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">Every Mood</span>
             </h1>
 
-            <p class="text-xl text-gray-700 mb-8 leading-relaxed">
-              Discover on-trend pieces with premium feel at everyday prices. Weekly drops. Limited runs. Don’t miss the heat.
+            <p class="text-base sm:text-lg md:text-xl text-gray-700 mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              Discover on-trend pieces with premium feel at everyday prices. Weekly drops. Limited runs. Don't miss the heat.
             </p>
 
             <!-- Stats -->
-            <div class="flex gap-12 mb-8">
+            <div class="flex flex-wrap gap-6 sm:gap-8 mb-6 sm:mb-8 justify-center lg:justify-start">
               <div class="text-center">
-                <div class="text-4xl font-bold text-pink-500">ETB 1,500+</div>
-                <div class="text-gray-400 text-sm">Free Shipping</div>
+                <div class="text-3xl sm:text-4xl font-bold text-pink-500">ETB 1,500+</div>
+                <div class="text-gray-500 text-xs sm:text-sm">Free Shipping</div>
               </div>
               <div class="text-center">
-                <div class="text-4xl font-bold text-pink-500">Weekly</div>
-                <div class="text-gray-400 text-sm">New Drops</div>
+                <div class="text-3xl sm:text-4xl font-bold text-pink-500">Weekly</div>
+                <div class="text-gray-500 text-xs sm:text-sm">New Drops</div>
               </div>
               <div class="text-center">
-                <div class="text-4xl font-bold text-pink-500">30 Days</div>
-                <div class="text-gray-400 text-sm">Free Returns</div>
+                <div class="text-3xl sm:text-4xl font-bold text-pink-500">30 Days</div>
+                <div class="text-gray-500 text-xs sm:text-sm">Free Returns</div>
               </div>
             </div>
 
             <!-- Buttons -->
-            <div class="flex gap-4 flex-wrap">
-              <button @click="scrollToSection('products')" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all flex items-center gap-2">
+            <div class="flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start">
+              <button @click="scrollToSection('products')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold hover:shadow-lg transition-all flex items-center gap-2 text-sm sm:text-base">
                 <i class="fas fa-bag-shopping"></i>
-                Shop New Arrivals
+                <span class="whitespace-nowrap">Shop Now</span>
               </button>
-              <button @click="scrollToSection('collection')" class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-all flex items-center gap-2">
+              <button @click="scrollToSection('collection')" class="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold transition-all flex items-center gap-2 text-sm sm:text-base">
                 <i class="fas fa-compass"></i>
-                Explore Collection
+                <span class="whitespace-nowrap">Explore</span>
               </button>
             </div>
           </div>
@@ -178,50 +178,128 @@
     </section>
 
     <!-- Products Section -->
-    <section id="products" class="py-20 bg-white border-t border-gray-200">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-10" data-aos="fade-up">
-          <div class="inline-block bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">Shop the Drop</div>
-          <h2 class="text-5xl font-extrabold text-white mb-4">New Arrivals</h2>
-          <p class="text-xl text-gray-300 max-w-2xl mx-auto">Fresh fits dropping weekly. Limited stock — grab yours now.</p>
+    <section id="products" class="py-12 sm:py-16 lg:py-20 bg-white border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-8 sm:mb-10" data-aos="fade-up">
+          <div class="inline-block bg-blue-100 text-blue-600 px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-semibold mb-3 sm:mb-4">Shop the Drop</div>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-3 sm:mb-4">New Arrivals</h2>
+          <p class="text-base sm:text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">Fresh fits dropping weekly. Limited stock — grab yours now.</p>
         </div>
 
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
-          <div class="flex gap-2">
-            <button v-for="tab in tabs" :key="tab" @click="setTab(tab)" :class="['px-4 py-2 rounded-full text-sm font-semibold transition-all', activeTab === tab ? 'bg-blue-600 text-white' : 'bg-white/5 text-gray-300 hover:bg-white/10']">{{ tab }}</button>
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 mb-6">
+          <div class="flex flex-wrap gap-2 justify-center sm:justify-start">
+            <button 
+              v-for="tab in tabs" 
+              :key="tab" 
+              @click="setTab(tab)" 
+              :class="[
+                'px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all', 
+                activeTab === tab 
+                  ? 'bg-blue-600 text-white' 
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              ]"
+            >
+              {{ tab }}
+            </button>
           </div>
-          <div class="relative w-full md:w-80">
-            <input v-model="searchQuery" type="text" placeholder="Search products..." class="w-full bg-white/5 border border-white/10 rounded-lg pl-10 pr-4 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-all" />
-            <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+          <div class="relative w-full sm:w-64 md:w-80">
+            <input 
+              v-model="searchQuery" 
+              type="text" 
+              placeholder="Search products..." 
+              class="w-full bg-gray-50 border border-gray-200 rounded-lg pl-9 pr-4 py-2 text-sm placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" 
+            />
+            <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"></i>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          <div v-for="product in filteredProducts" :key="product.id" data-aos="fade-up" class="bg-white/5 border border-white/10 rounded-2xl overflow-hidden group dark:bg-gray-800/50 dark:border-gray-700/50">
-            <div class="relative h-64 overflow-hidden">
-              <img :src="product.image" :alt="product.name" class="w-full h-full object-cover group-hover:scale-105 transition" />
-              <div class="absolute top-3 left-3 flex gap-2">
-                <span v-if="product.tags?.includes('New')" class="bg-blue-100 text-blue-600 text-xs font-bold px-2 py-1 rounded">NEW</span>
-                <span v-if="product.compareAt" class="bg-blue-100 text-blue-600 text-xs font-bold px-2 py-1 rounded">-{{ discountPercent(product) }}%</span>
+        <div class="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
+          <div 
+            v-for="product in filteredProducts" 
+            :key="product.id" 
+            data-aos="fade-up" 
+            class="bg-white border border-gray-100 rounded-xl overflow-hidden group hover:shadow-md transition-shadow"
+          >
+            <div class="relative aspect-[3/4] overflow-hidden">
+              <img 
+                :src="product.image" 
+                :alt="product.name" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
+              />
+              <!-- Badges -->
+              <div class="absolute top-3 left-3 flex flex-col gap-1.5">
+                <span 
+                  v-if="product.tags?.includes('New')" 
+                  class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-1 rounded whitespace-nowrap"
+                >
+                  NEW
+                </span>
+                <span 
+                  v-if="product.compareAt" 
+                  class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded whitespace-nowrap"
+                >
+                  -{{ discountPercent(product) }}% OFF
+                </span>
               </div>
-              <button @click="toggleWishlist(product)" class="absolute top-3 right-3 p-2 rounded-full bg-black/50 hover:bg-black/70 dark:bg-white/50 dark:hover:bg-white/70">
-                <i :class="['fas', product.__wish ? 'fa-heart text-blue-600' : 'fa-heart text-white dark:text-gray-400']"></i>
+              
+              <!-- Wishlist Button -->
+              <button 
+                @click="toggleWishlist(product)" 
+                class="absolute top-3 right-3 p-2 rounded-full bg-white/90 hover:bg-white transition-colors shadow-sm"
+                aria-label="Add to wishlist"
+              >
+                <i :class="[
+                  'fas', 
+                  product.__wish 
+                    ? 'fa-heart text-red-500' 
+                    : 'fa-heart text-gray-400 hover:text-red-500'
+                ]"></i>
               </button>
-              <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition p-3">
-                <button @click="addToCart(product)" class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:opacity-90 dark:bg-blue-600 dark:text-white">Quick Add</button>
+              
+              <!-- Quick Add Button -->
+              <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 p-3 bg-gradient-to-t from-black/70 to-transparent">
+                <button 
+                  @click="addToCart(product)" 
+                  class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg font-semibold transition-colors text-sm sm:text-base flex items-center justify-center gap-2"
+                >
+                  <i class="fas fa-shopping-bag"></i>
+                  <span>Add to Cart</span>
+                </button>
               </div>
             </div>
-            <div class="p-4">
-              <div class="flex items-start justify-between gap-3">
-                <h3 class="font-semibold line-clamp-2">{{ product.name }}</h3>
-                <div class="text-xs text-gray-400 flex items-center gap-1"><i class="fas fa-star text-yellow-400"></i>{{ product.rating }}</div>
+            
+            <!-- Product Info -->
+            <div class="p-3 sm:p-4">
+              <div class="flex items-start justify-between gap-2">
+                <h3 class="font-medium text-gray-900 text-sm sm:text-base line-clamp-2">
+                  {{ product.name }}
+                </h3>
+                <div class="flex items-center gap-1 text-xs sm:text-sm text-amber-500 bg-amber-50 px-1.5 py-0.5 rounded">
+                  <i class="fas fa-star"></i>
+                  <span>{{ product.rating }}</span>
+                </div>
               </div>
+              
               <div class="mt-2 flex items-center gap-2">
-                <span class="text-blue-600 font-bold">ETB {{ formatPrice(product.price) }}</span>
-                <span v-if="product.compareAt" class="text-gray-400 line-through text-sm">ETB {{ formatPrice(product.compareAt) }}</span>
+                <span class="text-gray-900 font-bold text-sm sm:text-base">
+                  ETB {{ formatPrice(product.price) }}
+                </span>
+                <span 
+                  v-if="product.compareAt" 
+                  class="text-gray-400 line-through text-xs sm:text-sm"
+                >
+                  ETB {{ formatPrice(product.compareAt) }}
+                </span>
               </div>
-              <div class="mt-3 flex items-center gap-2">
-                <span v-for="(c, idx) in product.colors" :key="idx" class="w-4 h-4 rounded-full border border-white/20 dark:border-gray-700/50" :style="{ background: c }"></span>
+              
+              <div class="mt-3 flex items-center gap-1.5 flex-wrap">
+                <span 
+                  v-for="(c, idx) in product.colors" 
+                  :key="idx" 
+                  class="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full border border-gray-200" 
+                  :style="{ backgroundColor: c }"
+                  :title="'Color ' + (idx + 1)"
+                ></span>
               </div>
             </div>
           </div>
@@ -229,189 +307,333 @@
       </div>
     </section>
 
-    <!-- Shop Features -->
-    <section id="features" class="py-20 bg-gray-100 border-t border-gray-200">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-12" data-aos="fade-up">
-          <div class="inline-block bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">Why Shop With Us</div>
-          <h2 class="text-5xl font-extrabold text-white mb-4">Built For Speed & Style</h2>
-          <p class="text-xl text-gray-300 max-w-2xl mx-auto">Seamless experience from browse to bag to doorstep.</p>
+    <!-- Features Section -->
+    <section id="features" class="py-12 sm:py-16 lg:py-20 bg-gray-50 border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10 sm:mb-12 md:mb-16" data-aos="fade-up">
+          <div class="inline-block bg-blue-100 text-blue-600 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-semibold mb-3 sm:mb-4">Why Shop With Us</div>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-3 sm:mb-4">Built For Speed & Style</h2>
+          <p class="text-base sm:text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">Seamless experience from browse to bag to doorstep.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center dark:bg-gray-800/50 dark:border-gray-700/50" data-aos="fade-up">
-            <div class="w-14 h-14 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-4"><i class="fas fa-truck-fast"></i></div>
-            <h3 class="text-lg font-semibold">Free Shipping</h3>
-            <p class="text-gray-400 text-sm mt-2">Orders over ETB 1,500 ship free nationwide.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
+          <div 
+            class="bg-white border border-gray-100 rounded-xl p-5 sm:p-6 text-center hover:shadow-md transition-shadow" 
+            data-aos="fade-up"
+          >
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-3 sm:mb-4">
+              <i class="fas fa-truck-fast text-lg sm:text-xl"></i>
+            </div>
+            <h3 class="text-base sm:text-lg font-semibold text-gray-900 mb-2">Free Shipping</h3>
+            <p class="text-sm sm:text-base text-gray-600">Orders over ETB 1,500 ship free nationwide.</p>
           </div>
-          <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center dark:bg-gray-800/50 dark:border-gray-700/50" data-aos="fade-up" data-aos-delay="100">
-            <div class="w-14 h-14 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-4"><i class="fas fa-rotate-left"></i></div>
-            <h3 class="text-lg font-semibold">Easy Returns</h3>
-            <p class="text-gray-400 text-sm mt-2">30-day hassle-free returns on all items.</p>
+          
+          <div 
+            class="bg-white border border-gray-100 rounded-xl p-5 sm:p-6 text-center hover:shadow-md transition-shadow" 
+            data-aos="fade-up" 
+            data-aos-delay="100"
+          >
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto mb-3 sm:mb-4">
+              <i class="fas fa-rotate-left text-lg sm:text-xl"></i>
+            </div>
+            <h3 class="text-base sm:text-lg font-semibold text-gray-900 mb-2">Easy Returns</h3>
+            <p class="text-sm sm:text-base text-gray-600">30-day hassle-free returns on all items.</p>
           </div>
-          <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center dark:bg-gray-800/50 dark:border-gray-700/50" data-aos="fade-up" data-aos-delay="200">
-            <div class="w-14 h-14 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-4"><i class="fas fa-lock"></i></div>
-            <h3 class="text-lg font-semibold">Secure Checkout</h3>
-            <p class="text-gray-400 text-sm mt-2">Encrypted payments and trusted gateways.</p>
+          
+          <div 
+            class="bg-white border border-gray-100 rounded-xl p-5 sm:p-6 text-center hover:shadow-md transition-shadow" 
+            data-aos="fade-up" 
+            data-aos-delay="200"
+          >
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mx-auto mb-3 sm:mb-4">
+              <i class="fas fa-lock text-lg sm:text-xl"></i>
+            </div>
+            <h3 class="text-base sm:text-lg font-semibold text-gray-900 mb-2">Secure Checkout</h3>
+            <p class="text-sm sm:text-base text-gray-600">Encrypted payments and trusted gateways.</p>
           </div>
-          <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center dark:bg-gray-800/50 dark:border-gray-700/50" data-aos="fade-up" data-aos-delay="300">
-            <div class="w-14 h-14 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-4"><i class="fas fa-headset"></i></div>
-            <h3 class="text-lg font-semibold">24/7 Support</h3>
-            <p class="text-gray-400 text-sm mt-2">We’re here anytime you need us.</p>
+          
+          <div 
+            class="bg-white border border-gray-100 rounded-xl p-5 sm:p-6 text-center hover:shadow-md transition-shadow" 
+            data-aos="fade-up" 
+            data-aos-delay="300"
+          >
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mx-auto mb-3 sm:mb-4">
+              <i class="fas fa-headset text-lg sm:text-xl"></i>
+            </div>
+            <h3 class="text-base sm:text-lg font-semibold text-gray-900 mb-2">24/7 Support</h3>
+            <p class="text-sm sm:text-base text-gray-600">We're here anytime you need us.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Reviews Section -->
-    <section id="reviews" class="py-20 bg-gray-50 border-t border-gray-200">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16" data-aos="fade-up">
-          <div class="inline-block bg-white/5 text-gray-300 border border-gray-700 px-4 py-2 rounded-full text-xs font-light tracking-widest mb-4">TESTIMONIALS</div>
-          <h2 class="text-4xl font-light text-white tracking-tight mb-4">Voices of Adore</h2>
-          <p class="text-gray-500 max-w-2xl mx-auto tracking-wider text-sm">EXPERIENCES FROM OUR COMMUNITY</p>
+    <section id="reviews" class="py-12 sm:py-16 lg:py-20 bg-white border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10 sm:mb-12 md:mb-16" data-aos="fade-up">
+          <div class="inline-block bg-blue-100 text-blue-600 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">TESTIMONIALS</div>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-3 sm:mb-4">Voices of Adore</h2>
+          <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">Real experiences from our valued customers</p>
         </div>
 
         <!-- Reviews Summary -->
-        <div data-aos="fade-up" class="flex gap-6 justify-center mb-12 flex-wrap">
-          <div class="flex items-center gap-2 text-sm text-gray-400">
-            <i class="fas fa-star text-gray-300"></i>
-            <span class="tracking-wider">4.7 / 5.0</span>
+        <div data-aos="fade-up" class="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center items-center mb-10 sm:mb-12">
+          <div class="flex items-center gap-2 text-sm sm:text-base text-gray-700">
+            <div class="flex items-center gap-1">
+              <i class="fas fa-star text-amber-400"></i>
+              <i class="fas fa-star text-amber-400"></i>
+              <i class="fas fa-star text-amber-400"></i>
+              <i class="fas fa-star text-amber-400"></i>
+              <i class="fas fa-star-half-alt text-amber-400"></i>
+            </div>
+            <span class="font-medium">4.7 / 5.0</span>
           </div>
-          <div class="text-sm text-gray-400">Verified buyers only</div>
+          <div class="hidden sm:block w-px h-6 bg-gray-200"></div>
+          <div class="text-sm sm:text-base text-gray-600">
+            <i class="fas fa-check-circle text-green-500 mr-1"></i>
+            Verified buyers only
+          </div>
         </div>
 
         <!-- Reviews Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          <div v-for="review in filteredReviews" :key="review.id" data-aos="fade-up" class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow dark:bg-gray-800/50 dark:border-gray-700/50">
-            <div class="flex items-center gap-2 mb-2">
-              <i v-for="n in 5" :key="n" class="fas fa-star" :class="{'text-teal-400': n <= Math.round(review.rating), 'text-gray-700': n > Math.round(review.rating)}"></i>
-              <span class="text-sm text-gray-500">{{ review.rating.toFixed(1) }}</span>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6 mb-10 sm:mb-12">
+          <div 
+            v-for="review in filteredReviews" 
+            :key="review.id" 
+            data-aos="fade-up"
+            class="bg-white border border-gray-100 rounded-xl p-5 sm:p-6 hover:shadow-md transition-shadow"
+          >
+            <div class="flex items-center gap-2 mb-3">
+              <div class="flex">
+                <i 
+                  v-for="n in 5" 
+                  :key="n" 
+                  class="fas text-sm sm:text-base" 
+                  :class="{
+                    'fa-star text-amber-400': n <= Math.round(review.rating), 
+                    'fa-star-half-alt text-amber-400': n - 0.5 === review.rating,
+                    'fa-star text-gray-200': n > Math.ceil(review.rating)
+                  }"
+                ></i>
+              </div>
+              <span class="text-xs sm:text-sm text-gray-500">{{ review.rating.toFixed(1) }}</span>
             </div>
-            <p class="text-gray-700 line-clamp-2 mb-4">"{{ review.comment }}"</p>
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <img :src="review.avatar" alt="" class="w-8 h-8 rounded-full object-cover" />
+            
+            <p class="text-sm sm:text-base text-gray-600 line-clamp-3 mb-4">"{{ review.comment }}"</p>
+            
+            <div class="flex items-center justify-between pt-3 border-t border-gray-100">
+              <div class="flex items-center gap-2 sm:gap-3">
+                <img 
+                  :src="review.avatar" 
+                  :alt="review.user" 
+                  class="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover border-2 border-white shadow-sm" 
+                />
                 <div>
-                  <div class="text-sm font-semibold text-gray-900">{{ review.user }}</div>
-                  <div class="text-xs text-gray-500">{{ review.date }}</div>
+                  <div class="text-sm sm:text-base font-medium text-gray-900">{{ review.user }}</div>
+                  <div class="text-xs text-gray-500">{{ formatDate(review.date) }}</div>
                 </div>
               </div>
-              <div class="text-xs text-gray-500">on {{ review.product }}</div>
+              <div class="text-xs text-gray-500 hidden sm:block">on {{ review.product }}</div>
             </div>
           </div>
         </div>
 
         <div class="text-center">
-          <button class="border-2 border-pink-600 text-pink-600 px-8 py-3 rounded-lg font-semibold hover:bg-pink-600 hover:text-white transition-all flex items-center gap-2 mx-auto">
-            <i class="fas fa-plus"></i>
-            Load More Reviews
+          <button 
+            class="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded-lg font-medium transition-all duration-200"
+            @click="loadMoreReviews"
+          >
+            <i class="fas fa-plus text-sm"></i>
+            <span>Load More Reviews</span>
           </button>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section - Nordstrom Inspired -->
-    <section id="contact" class="relative py-24 bg-white border-t border-gray-200 overflow-hidden">
-      <!-- Decorative elements -->
-      <div class="absolute inset-0 opacity-5">
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4yIj48cGF0aCBkPSJNMCAwaDQwdjQwSDB6Ii8+PC9nPjwvZz48L3N2Zz4=')]"></div>
-      </div>
-      
-      <div class="relative max-w-6xl mx-auto px-6 xl:px-8">
-        <div class="text-center mb-16" data-aos="fade-up">
-          <h2 class="text-3xl md:text-4xl font-light text-white tracking-tight mb-4">Need Help?</h2>
-          <p class="text-gray-300 max-w-2xl mx-auto text-base">
-            Our customer care team is available by phone, email or chat.
-          </p>
+    <!-- Contact Section -->
+    <section id="contact" class="relative py-12 sm:py-16 lg:py-20 bg-gray-50 border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10 sm:mb-12 md:mb-16" data-aos="fade-up">
+          <div class="inline-block bg-blue-100 text-blue-600 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-semibold mb-3 sm:mb-4">GET IN TOUCH</div>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-3 sm:mb-4">We'd Love to Hear From You</h2>
+          <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">Our team is here to help with any questions about our products or services.</p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <!-- Contact Info -->
-          <div data-aos="fade-right" class="lg:col-span-1 space-y-6">
-            <div class="space-y 1">
-              <h3 class="text-xl font-light text-white mb-6">Contact Information</h3>
-              <p class="text-gray-300 text-sm leading-relaxed">
-                Our customer care team is available to assist you with any questions or concerns you may have.
+          <div data-aos="fade-right" class="space-y-6 lg:col-span-1">
+            <div class="bg-white rounded-xl p-6 sm:p-8 shadow-sm border border-gray-100">
+              <h3 class="text-xl font-bold text-gray-900 mb-6">Contact Information</h3>
+              <p class="text-gray-600 mb-6">
+                Have questions or need assistance? We're here to help you with anything you need.
               </p>
-            </div>
-            
-            <div class="space-y-4 pt-4 border-t border-gray-800 dark:border-gray-700">
-              <div v-for="(contact, idx) in contactInfo" :key="idx" class="group flex items-start space-x-4 hover:bg-gray-800/30 p-3 -mx-3 rounded-lg transition-all duration-200 dark:hover:bg-gray-700/30">
-                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-teal-500/10 flex items-center justify-center group-hover:bg-teal-500/20 transition-colors dark:bg-teal-500/20 dark:group-hover:bg-teal-500/30">
-                  <i :class="`fas ${contact.icon} text-teal-400 text-lg`"></i>
+              
+              <div class="space-y-5">
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-medium text-gray-500 mb-1">Our Location</h4>
+                    <p class="text-gray-900">123 Fashion Street, Addis Ababa, Ethiopia</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 class="text-sm font-medium text-gray-300 mb-1">{{ contact.title }}</h4>
-                  <p class="text-sm text-gray-400 leading-relaxed">{{ contact.content }}</p>
+                
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-green-600">
+                    <i class="fas fa-phone-alt"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-medium text-gray-500 mb-1">Phone Number</h4>
+                    <p class="text-gray-900">+251 911 123 456</p>
+                    <p class="text-gray-900">+251 911 789 012</p>
+                  </div>
                 </div>
+                
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0 w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-purple-600">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-medium text-gray-500 mb-1">Email Address</h4>
+                    <p class="text-gray-900">hello@adore.com</p>
+                    <p class="text-gray-900">support@adore.com</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="pt-6 mt-6 border-t border-gray-100">
+                <h4 class="text-sm font-medium text-gray-500 mb-3">Business Hours</h4>
+                <ul class="space-y-2">
+                  <li class="flex justify-between text-sm">
+                    <span class="text-gray-600">Monday - Friday</span>
+                    <span class="font-medium text-gray-900">9:00 AM - 9:00 PM</span>
+                  </li>
+                  <li class="flex justify-between text-sm">
+                    <span class="text-gray-600">Saturday - Sunday</span>
+                    <span class="font-medium text-gray-900">10:00 AM - 7:00 PM</span>
+                  </li>
+                </ul>
               </div>
             </div>
             
-            <div class="pt-4 border-t border-gray-800 dark:border-gray-700">
-              <h4 class="text-sm font-medium text-gray-300 mb-3">Business Hours</h4>
-              <ul class="space-y-1.5">
-                <li class="flex justify-between text-sm">
-                  <span class="text-gray-400">Monday - Friday</span>
-                  <span class="text-white">9:00 AM - 9:00 PM EST</span>
-                </li>
-                <li class="flex justify-between text-sm">
-                  <span class="text-gray-400">Saturday - Sunday</span>
-                  <span class="text-white">10:00 AM - 7:00 PM EST</span>
-                </li>
-              </ul>
+            <div class="bg-gradient-to-br from-blue-600 to-blue-500 rounded-xl p-6 text-white">
+              <h4 class="font-bold text-lg mb-3">Need help right away?</h4>
+              <p class="text-blue-100 text-sm mb-4">Our customer support team is available 24/7 to assist you with any questions.</p>
+              <a href="tel:+251911123456" class="inline-flex items-center gap-2 bg-white text-blue-600 hover:bg-blue-50 px-4 py-2.5 rounded-lg font-medium transition-colors">
+                <i class="fas fa-phone-alt"></i>
+                <span>Call Us Now</span>
+              </a>
             </div>
           </div>
 
           <!-- Contact Form -->
-          <div data-aos="fade-left" class="lg:col-span-2 bg-gray-800/30 backdrop-blur-sm rounded-xl p-8 border border-gray-700/50 dark:bg-gray-800/30 dark:border-gray-700/50">
-            <h3 class="text-xl font-light text-white mb-6">Send Us a Message</h3>
-            <form class="space-y-6">
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="space-y-1.5">
-                  <label class="block text-sm font-medium text-gray-300">First Name</label>
-                  <input type="text" class="w-full bg-gray-700/30 border border-gray-600/50 rounded-md px-4 py-2.5 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-teal-500/50 focus:border-teal-500/50 transition-all" placeholder="Your first name" />
+          <div data-aos="fade-left" class="lg:col-span-2">
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 sm:p-8">
+              <h3 class="text-2xl font-bold text-gray-900 mb-2">Send Us a Message</h3>
+              <p class="text-gray-600 mb-6">Fill out the form below and we'll get back to you as soon as possible.</p>
+              
+              <form class="space-y-5">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div class="space-y-1.5">
+                    <label for="first-name" class="block text-sm font-medium text-gray-700">First Name <span class="text-red-500">*</span></label>
+                    <input 
+                      type="text" 
+                      id="first-name" 
+                      required
+                      class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" 
+                      placeholder="Your first name"
+                    />
+                  </div>
+                  
+                  <div class="space-y-1.5">
+                    <label for="last-name" class="block text-sm font-medium text-gray-700">Last Name <span class="text-red-500">*</span></label>
+                    <input 
+                      type="text" 
+                      id="last-name" 
+                      required
+                      class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" 
+                      placeholder="Your last name"
+                    />
+                  </div>
                 </div>
-                <div class="space-y-1.5">
-                  <label class="block text-sm font-medium text-gray-300">Last Name</label>
-                  <input type="text" class="w-full bg-gray-700/30 border border-gray-600/50 rounded-md px-4 py-2.5 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-teal-500/50 focus:border-teal-500/50 transition-all" placeholder="Your last name" />
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div class="space-y-1.5">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email Address <span class="text-red-500">*</span></label>
+                    <input 
+                      type="email" 
+                      id="email" 
+                      required
+                      class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" 
+                      placeholder="your.email@example.com"
+                    />
+                  </div>
+                  
+                  <div class="space-y-1.5">
+                    <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                    <input 
+                      type="tel" 
+                      id="phone" 
+                      class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" 
+                      placeholder="+251 911 123 456"
+                    />
+                  </div>
                 </div>
-              </div>
-              
-              <div class="space-y-1.5">
-                <label class="block text-sm font-medium text-gray-300">Email Address</label>
-                <input type="email" class="w-full bg-gray-700/30 border border-gray-600/50 rounded-md px-4 py-2.5 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-teal-500/50 focus:border-teal-500/50 transition-all" placeholder="your.email@example.com" />
-              </div>
-              
-              <div class="space-y-1.5">
-                <label class="block text-sm font-medium text-gray-300">Phone Number</label>
-                <input type="tel" class="w-full bg-gray-700/30 border border-gray-600/50 rounded-md px-4 py-2.5 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-teal-500/50 focus:border-teal-500/50 transition-all" placeholder="+1 (___) ___-____" />
-              </div>
-              
-              <div class="space-y-1.5">
-                <label class="block text-sm font-medium text-gray-300">How can we help?</label>
-                <select class="w-full bg-gray-700/30 border border-gray-600/50 rounded-md px-4 py-2.5 text-gray-100 focus:outline-none focus:ring-1 focus:ring-teal-500/50 focus:border-teal-500/50 appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiAjd2hpdGUiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1jaGV2cm9uLWRvd24iPjxwYXRoIGQ9Im03IDE1IDUgNSA1LTUiLz48cGF0aCBkPSJNMTIgMjBWNyIvPjwvc3ZnPg==')] bg-no-repeat bg-[right_0.75rem_center] bg-[length:1.25em_1.25em] hover:border-gray-500/50 transition-colors">
-                  <option class="bg-gray-800 text-gray-100">Select a topic</option>
-                  <option class="bg-gray-800 text-gray-100">Order Status</option>
-                  <option class="bg-gray-800 text-gray-100">Returns & Exchanges</option>
-                  <option class="bg-gray-800 text-gray-100">Product Information</option>
-                  <option class="bg-gray-800 text-gray-100">Technical Support</option>
-                  <option class="bg-gray-800 text-gray-100">Other</option>
-                </select>
-              </div>
-              
-              <div class="space-y-1.5">
-                <label class="block text-sm font-medium text-gray-300">Message</label>
-                <textarea rows="4" class="w-full bg-gray-700/30 border border-gray-600/50 rounded-md px-4 py-3 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-teal-500/50 focus:border-teal-500/50 transition-all resize-none" placeholder="How can we assist you today?"></textarea>
-              </div>
-              
-              <div class="pt-2">
-                <button type="submit" class="w-full bg-teal-600 hover:bg-teal-500 text-white font-medium py-3 px-6 rounded-md transition-all duration-200 flex items-center justify-center gap-2 group">
-                  <span>Send Message</span>
-                  <i class="fas fa-arrow-right text-sm transition-transform group-hover:translate-x-1"></i>
-                </button>
-              </div>
-            </form>
+                
+                <div class="space-y-1.5">
+                  <label for="subject" class="block text-sm font-medium text-gray-700">Subject <span class="text-red-500">*</span></label>
+                  <select 
+                    id="subject" 
+                    required
+                    class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiAjdjEwMDAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1jaGV2cm9uLWRvd24iPjxwYXRoIGQ9Im03IDE1IDUgNSA1LTUiLz48cGF0aCBkPSJNMTIgMjBWNyIvPjwvc3ZnPg==')] bg-no-repeat bg-[right_1rem_center] bg-[length:1.25em_1.25em] hover:border-gray-300 transition-colors"
+                  >
+                    <option value="" disabled selected>Select a subject</option>
+                    <option value="order">Order Status</option>
+                    <option value="returns">Returns & Exchanges</option>
+                    <option value="product">Product Information</option>
+                    <option value="shipping">Shipping & Delivery</option>
+                    <option value="other">Other Inquiry</option>
+                  </select>
+                </div>
+                
+                <div class="space-y-1.5">
+                  <label for="message" class="block text-sm font-medium text-gray-700">Your Message <span class="text-red-500">*</span></label>
+                  <textarea 
+                    id="message" 
+                    rows="4" 
+                    required
+                    class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all resize-none" 
+                    placeholder="How can we help you today?"
+                  ></textarea>
+                </div>
+                
+                <div class="pt-2">
+                  <button 
+                    type="submit" 
+                    class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-3.5 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 group"
+                  >
+                    <span>Send Message</span>
+                    <i class="fas fa-paper-plane text-sm transition-transform group-hover:translate-x-1"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+            
+            <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <a href="#" class="flex items-center justify-center gap-2 bg-white hover:bg-gray-50 border border-gray-200 rounded-lg p-3 sm:p-4 transition-colors">
+                <i class="fab fa-facebook-messenger text-blue-500 text-xl"></i>
+                <span class="text-sm font-medium text-gray-700">Live Chat</span>
+              </a>
+              <a href="https://wa.me/251911123456" target="_blank" class="flex items-center justify-center gap-2 bg-white hover:bg-gray-50 border border-gray-200 rounded-lg p-3 sm:p-4 transition-colors">
+                <i class="fab fa-whatsapp text-green-500 text-xl"></i>
+                <span class="text-sm font-medium text-gray-700">WhatsApp</span>
+              </a>
+              <a href="mailto:support@adore.com" class="flex items-center justify-center gap-2 bg-white hover:bg-gray-50 border border-gray-200 rounded-lg p-3 sm:p-4 transition-colors">
+                <i class="fas fa-envelope text-gray-500 text-xl"></i>
+                <span class="text-sm font-medium text-gray-700">Email Us</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
