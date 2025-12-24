@@ -14,7 +14,7 @@
       <div class="max-w-7xl mx-auto px-6">
         <div class="flex items-center justify-between h-20">
           <!-- Logo -->
-          <a href="#" class="text-2xl font-bold text-gray-900 ">ADOREss</a>
+          <a href="#" class="text-2xl font-bold text-gray-900 ">ADORE</a>
           
           <!-- Desktop Navigation -->
           <div class="hidden md:flex items-center space-x-8">
