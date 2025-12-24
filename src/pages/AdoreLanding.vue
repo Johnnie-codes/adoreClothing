@@ -28,7 +28,6 @@
             </button>
             <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-3 sm:px-6 py-2 rounded-full text-sm sm:text-base transition-colors whitespace-nowrap">Contact</a>
           </div>
-          
           <!-- Mobile menu button -->
           <div class="flex md:hidden">
             <button 
@@ -41,28 +40,17 @@
             </button>
           </div>
         </div>
-        
         <!-- Mobile Menu -->
         <div v-if="isMobileMenuOpen" class="md:hidden bg-white/95 dark:bg-gray-900/95 border-t border-gray-200 dark:border-gray-800">
           <div class="px-6 py-4 space-y-4">
-            <a href="#" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Home</a>
-            <a href="#collection" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Collection</a>
-            <a href="#products" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Products</a>
-            <a href="#features" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Features</a>
-            <a href="#reviews" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Reviews</a>
+            <a href="#" @click="isMobileMenuOpen = false" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Home</a>
+            <a href="#collection" @click="isMobileMenuOpen = false" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Collection</a>
+            <a href="#products" @click="isMobileMenuOpen = false" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Products</a>
+            <a href="#features" @click="isMobileMenuOpen = false" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Features</a>
+            <a href="#reviews" @click="isMobileMenuOpen = false" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Reviews</a>
             <div class="pt-2">
-              <a href="#contact" class="block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full text-center transition-colors">Contact</a>
+              <a href="#contact" @click="isMobileMenuOpen = false" class="block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full text-center transition-colors">Contact</a>
             </div>
-      <!-- Mobile Menu -->
-      <div v-if="isMobileMenuOpen" class="md:hidden bg-white/95 dark:bg-gray-900/95 border-t border-gray-200 dark:border-gray-800">
-        <div class="px-6 py-4 space-y-4">
-          <a href="#" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Home</a>
-          <a href="#collection" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Collection</a>
-          <a href="#products" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Products</a>
-          <a href="#features" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Features</a>
-          <a href="#reviews" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Reviews</a>
-          <div class="pt-2">
-            <a href="#contact" class="block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full text-center transition-colors">Contact</a>
           </div>
         </div>
       </div>
