@@ -30,17 +30,29 @@
           </div>
           
           <!-- Mobile menu button -->
-          <div class="md:hidden flex items-center space-x-4">
-            <button @click="toggleTheme" class="p-2 rounded-full text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
-              <i :class="theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon'" class="text-sm sm:text-base"></i>
-            </button>
-            <button @click="isMobileMenuOpen = !isMobileMenuOpen" class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
-              <i class="fas fa-bars text-2xl"></i>
+          <div class="flex md:hidden">
+            <button 
+              type="button" 
+              @click="toggleMobileMenu"
+              class="text-gray-500 hover:text-gray-600 focus:outline-none"
+              aria-label="Toggle menu"
+            >
+              <i :class="isMobileMenuOpen ? 'fas fa-times' : 'fas fa-bars'" class="text-2xl"></i>
             </button>
           </div>
         </div>
-      </div>
-      
+        
+        <!-- Mobile Menu -->
+        <div v-if="isMobileMenuOpen" class="md:hidden bg-white/95 dark:bg-gray-900/95 border-t border-gray-200 dark:border-gray-800">
+          <div class="px-6 py-4 space-y-4">
+            <a href="#" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Home</a>
+            <a href="#collection" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Collection</a>
+            <a href="#products" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Products</a>
+            <a href="#features" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Features</a>
+            <a href="#reviews" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Reviews</a>
+            <div class="pt-2">
+              <a href="#contact" class="block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full text-center transition-colors">Contact</a>
+            </div>
       <!-- Mobile Menu -->
       <div v-if="isMobileMenuOpen" class="md:hidden bg-white/95 dark:bg-gray-900/95 border-t border-gray-200 dark:border-gray-800">
         <div class="px-6 py-4 space-y-4">
@@ -724,9 +736,24 @@ const contactInfo = [
   { icon: 'fa-clock', title: 'Store Hours', content: 'Monday - Friday: 10:00 AM - 8:00 PM\nSaturday - Sunday: 11:00 AM - 7:00 PM' },
 ];
 
+// UI State
+const isMobileMenuOpen = ref(false);
+
 // Fast-fashion shop state
 const cartCount = ref(0);
 const wishlistCount = ref(0);
+
+// Format date for reviews
+const formatDate = (dateString) => {
+  if (!dateString) return '';
+  const options = { year: 'numeric', month: 'short', day: 'numeric' };
+  return new Date(dateString).toLocaleDateString(undefined, options);
+};
+
+// Toggle mobile menu
+const toggleMobileMenu = () => {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value;
+};
 
 const tabs = ['All', 'Men', 'Women', 'Unisex', 'Sale'];
 const activeTab = ref('All');
