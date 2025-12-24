@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gray-900 text-gray-100">
+  <div class="min-h-screen bg-gray-100 text-gray-900">
     <!-- Loading Screen -->
     <div v-if="showLoadingScreen" class="fixed inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center z-[9999]">
       <div class="text-center">
@@ -10,11 +10,11 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+    <nav class="fixed w-full z-50 bg-white shadow-md">
       <div class="max-w-7xl mx-auto px-6">
         <div class="flex items-center justify-between h-20">
           <!-- Logo -->
-          <a href="#" class="text-2xl font-bold text-gray-900 dark:text-white">ADORE</a>
+          <a href="#" class="text-2xl font-bold text-gray-900 ">ADORE</a>
           
           <!-- Desktop Navigation -->
           <div class="hidden md:flex items-center space-x-8">
@@ -50,14 +50,14 @@
           <a href="#features" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Features</a>
           <a href="#reviews" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Reviews</a>
           <div class="pt-2">
-            <a href="#contact" class="block bg-teal-600 hover:bg-teal-500 text-white px-6 py-2 rounded-full text-center">Contact</a>
+            <a href="#contact" class="block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full text-center transition-colors">Contact</a>
           </div>
         </div>
       </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-32 pb-20 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden dark:bg-gradient-to-br dark:from-gray-900 dark:via-black dark:to-gray-900">
+    <section id="home" class="pt-32 pb-20 bg-gradient-to-r from-gray-50 to-gray-100 relative overflow-hidden border-b border-gray-200">
       <div class="absolute inset-0 opacity-5">
         <div class="absolute top-20 left-10 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
         <div class="absolute top-40 right-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
@@ -67,16 +67,16 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <!-- Hero Content -->
           <div data-aos="fade-up">
-            <div class="inline-flex items-center gap-2 bg-pink-500/10 text-pink-400 px-4 py-2 rounded-full mb-6">
+            <div class="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full mb-6 shadow-sm">
               <i class="fas fa-bolt"></i>
               <span class="font-semibold">NEW DROP JUST LANDED</span>
             </div>
 
-            <h1 class="text-6xl font-extrabold text-white mb-6 leading-tight">
-              Fast Fashion for <span class="bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">Every Mood</span>
+            <h1 class="text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+              Fast Fashion for <span class="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">Every Mood</span>
             </h1>
 
-            <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+            <p class="text-xl text-gray-700 mb-8 leading-relaxed">
               Discover on-trend pieces with premium feel at everyday prices. Weekly drops. Limited runs. Don’t miss the heat.
             </p>
 
@@ -98,11 +98,11 @@
 
             <!-- Buttons -->
             <div class="flex gap-4 flex-wrap">
-              <button @click="scrollToSection('products')" class="bg-teal-800/80 hover:bg-teal-700 text-teal-100 px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all flex items-center gap-2">
+              <button @click="scrollToSection('products')" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all flex items-center gap-2">
                 <i class="fas fa-bag-shopping"></i>
                 Shop New Arrivals
               </button>
-              <button @click="scrollToSection('collection')" class="border-2 border-teal-500 text-teal-500 px-8 py-3 rounded-lg font-semibold hover:bg-teal-500 hover:text-black transition-all flex items-center gap-2">
+              <button @click="scrollToSection('collection')" class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-all flex items-center gap-2">
                 <i class="fas fa-compass"></i>
                 Explore Collection
               </button>
@@ -147,28 +147,28 @@
     </section>
 
     <!-- Collection Section -->
-    <section id="collection" class="py-20 bg-black dark:bg-gray-900">
+    <section id="collection" class="py-20 bg-gray-50">
       <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16" data-aos="fade-up">
-          <div class="inline-block bg-teal-500/10 text-teal-400 px-4 py-2 rounded-full text-sm font-semibold mb-4">New Collection</div>
+          <div class="inline-block bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">New Collection</div>
           <h2 class="text-5xl font-extrabold text-white mb-4">Streetwear Essentials 2025</h2>
           <p class="text-xl text-gray-300 max-w-2xl mx-auto">Curated silhouettes, premium fabrics, bold fits. Built for everyday motion. Designed to turn heads.</p>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
           <div data-aos="fade-right" class="relative h-80 rounded-2xl overflow-hidden group">
-            <img src="/search_images/4u2kdUqkvMAv.jpg" alt="Streetwear" class="w-full h-full object-cover group-hover:scale-105 transition" />
+            <img src="/adore pics/hoodie.jpg" alt="Streetwear Collection" class="w-full h-full object-cover group-hover:scale-105 transition" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
             <div class="absolute bottom-6 left-6">
-              <div class="text-sm text-teal-400 font-semibold">Trending</div>
+              <div class="text-sm text-blue-600 font-semibold">Trending</div>
               <div class="text-3xl font-bold">Streetwear Drop</div>
               <button @click="scrollToSection('products')" class="mt-4 px-5 py-2 rounded-lg bg-white text-black font-semibold hover:opacity-90">Shop Now</button>
             </div>
           </div>
           <div data-aos="fade-left" class="relative h-80 rounded-2xl overflow-hidden group">
-            <img src="/search_images/42fr15EGxcLv.jpg" alt="Essentials" class="w-full h-full object-cover group-hover:scale-105 transition" />
+            <img src="/adore pics/hoodie2.jpg" alt="Essentials Collection" class="w-full h-full object-cover group-hover:scale-105 transition" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
             <div class="absolute bottom-6 left-6">
-              <div class="text-sm text-teal-400 font-semibold">Best Seller</div>
+              <div class="text-sm text-blue-600 font-semibold">Best Seller</div>
               <div class="text-3xl font-bold">Everyday Essentials</div>
               <button @click="scrollToSection('products')" class="mt-4 px-5 py-2 rounded-lg bg-white text-black font-semibold hover:opacity-90">Explore</button>
             </div>
@@ -178,20 +178,20 @@
     </section>
 
     <!-- Products Section -->
-    <section id="products" class="py-20 bg-black dark:bg-gray-900">
+    <section id="products" class="py-20 bg-white border-t border-gray-200">
       <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-10" data-aos="fade-up">
-          <div class="inline-block bg-teal-500/10 text-teal-400 px-4 py-2 rounded-full text-sm font-semibold mb-4">Shop the Drop</div>
+          <div class="inline-block bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">Shop the Drop</div>
           <h2 class="text-5xl font-extrabold text-white mb-4">New Arrivals</h2>
           <p class="text-xl text-gray-300 max-w-2xl mx-auto">Fresh fits dropping weekly. Limited stock — grab yours now.</p>
         </div>
 
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
           <div class="flex gap-2">
-            <button v-for="tab in tabs" :key="tab" @click="setTab(tab)" :class="['px-4 py-2 rounded-full text-sm font-semibold transition-all', activeTab === tab ? 'bg-teal-500 text-black' : 'bg-white/5 text-gray-300 hover:bg-white/10']">{{ tab }}</button>
+            <button v-for="tab in tabs" :key="tab" @click="setTab(tab)" :class="['px-4 py-2 rounded-full text-sm font-semibold transition-all', activeTab === tab ? 'bg-blue-600 text-white' : 'bg-white/5 text-gray-300 hover:bg-white/10']">{{ tab }}</button>
           </div>
           <div class="relative w-full md:w-80">
-            <input v-model="searchQuery" type="text" placeholder="Search products..." class="w-full bg-white/5 border border-white/10 rounded-lg pl-10 pr-4 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500" />
+            <input v-model="searchQuery" type="text" placeholder="Search products..." class="w-full bg-white/5 border border-white/10 rounded-lg pl-10 pr-4 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-all" />
             <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
           </div>
         </div>
@@ -201,14 +201,14 @@
             <div class="relative h-64 overflow-hidden">
               <img :src="product.image" :alt="product.name" class="w-full h-full object-cover group-hover:scale-105 transition" />
               <div class="absolute top-3 left-3 flex gap-2">
-                <span v-if="product.tags?.includes('New')" class="bg-teal-500 text-black text-xs font-bold px-2 py-1 rounded">NEW</span>
-                <span v-if="product.compareAt" class="bg-teal-500 text-black text-xs font-bold px-2 py-1 rounded">-{{ discountPercent(product) }}%</span>
+                <span v-if="product.tags?.includes('New')" class="bg-blue-100 text-blue-600 text-xs font-bold px-2 py-1 rounded">NEW</span>
+                <span v-if="product.compareAt" class="bg-blue-100 text-blue-600 text-xs font-bold px-2 py-1 rounded">-{{ discountPercent(product) }}%</span>
               </div>
               <button @click="toggleWishlist(product)" class="absolute top-3 right-3 p-2 rounded-full bg-black/50 hover:bg-black/70 dark:bg-white/50 dark:hover:bg-white/70">
-                <i :class="['fas', product.__wish ? 'fa-heart text-teal-500' : 'fa-heart text-white dark:text-gray-400']"></i>
+                <i :class="['fas', product.__wish ? 'fa-heart text-blue-600' : 'fa-heart text-white dark:text-gray-400']"></i>
               </button>
               <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition p-3">
-                <button @click="addToCart(product)" class="w-full bg-teal-500 text-black py-2 rounded-lg font-semibold hover:opacity-90 dark:bg-teal-500 dark:text-black">Quick Add</button>
+                <button @click="addToCart(product)" class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:opacity-90 dark:bg-blue-600 dark:text-white">Quick Add</button>
               </div>
             </div>
             <div class="p-4">
@@ -217,7 +217,7 @@
                 <div class="text-xs text-gray-400 flex items-center gap-1"><i class="fas fa-star text-yellow-400"></i>{{ product.rating }}</div>
               </div>
               <div class="mt-2 flex items-center gap-2">
-                <span class="text-teal-500 font-bold">ETB {{ formatPrice(product.price) }}</span>
+                <span class="text-blue-600 font-bold">ETB {{ formatPrice(product.price) }}</span>
                 <span v-if="product.compareAt" class="text-gray-400 line-through text-sm">ETB {{ formatPrice(product.compareAt) }}</span>
               </div>
               <div class="mt-3 flex items-center gap-2">
@@ -230,32 +230,32 @@
     </section>
 
     <!-- Shop Features -->
-    <section id="features" class="py-20 bg-black dark:bg-gray-900">
+    <section id="features" class="py-20 bg-gray-100 border-t border-gray-200">
       <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-12" data-aos="fade-up">
-          <div class="inline-block bg-teal-500/10 text-teal-400 px-4 py-2 rounded-full text-sm font-semibold mb-4">Why Shop With Us</div>
+          <div class="inline-block bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">Why Shop With Us</div>
           <h2 class="text-5xl font-extrabold text-white mb-4">Built For Speed & Style</h2>
           <p class="text-xl text-gray-300 max-w-2xl mx-auto">Seamless experience from browse to bag to doorstep.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center dark:bg-gray-800/50 dark:border-gray-700/50" data-aos="fade-up">
-            <div class="w-14 h-14 rounded-full bg-teal-500/20 text-teal-400 flex items-center justify-center mx-auto mb-4"><i class="fas fa-truck-fast"></i></div>
+            <div class="w-14 h-14 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-4"><i class="fas fa-truck-fast"></i></div>
             <h3 class="text-lg font-semibold">Free Shipping</h3>
             <p class="text-gray-400 text-sm mt-2">Orders over ETB 1,500 ship free nationwide.</p>
           </div>
           <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center dark:bg-gray-800/50 dark:border-gray-700/50" data-aos="fade-up" data-aos-delay="100">
-            <div class="w-14 h-14 rounded-full bg-teal-500/20 text-teal-400 flex items-center justify-center mx-auto mb-4"><i class="fas fa-rotate-left"></i></div>
+            <div class="w-14 h-14 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-4"><i class="fas fa-rotate-left"></i></div>
             <h3 class="text-lg font-semibold">Easy Returns</h3>
             <p class="text-gray-400 text-sm mt-2">30-day hassle-free returns on all items.</p>
           </div>
           <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center dark:bg-gray-800/50 dark:border-gray-700/50" data-aos="fade-up" data-aos-delay="200">
-            <div class="w-14 h-14 rounded-full bg-teal-500/20 text-teal-400 flex items-center justify-center mx-auto mb-4"><i class="fas fa-lock"></i></div>
+            <div class="w-14 h-14 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-4"><i class="fas fa-lock"></i></div>
             <h3 class="text-lg font-semibold">Secure Checkout</h3>
             <p class="text-gray-400 text-sm mt-2">Encrypted payments and trusted gateways.</p>
           </div>
           <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center dark:bg-gray-800/50 dark:border-gray-700/50" data-aos="fade-up" data-aos-delay="300">
-            <div class="w-14 h-14 rounded-full bg-teal-500/20 text-teal-400 flex items-center justify-center mx-auto mb-4"><i class="fas fa-headset"></i></div>
+            <div class="w-14 h-14 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-4"><i class="fas fa-headset"></i></div>
             <h3 class="text-lg font-semibold">24/7 Support</h3>
             <p class="text-gray-400 text-sm mt-2">We’re here anytime you need us.</p>
           </div>
@@ -264,7 +264,7 @@
     </section>
 
     <!-- Reviews Section -->
-    <section id="reviews" class="py-20 bg-gray-900 border-t border-gray-800 dark:bg-gray-900 dark:border-gray-800">
+    <section id="reviews" class="py-20 bg-gray-50 border-t border-gray-200">
       <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16" data-aos="fade-up">
           <div class="inline-block bg-white/5 text-gray-300 border border-gray-700 px-4 py-2 rounded-full text-xs font-light tracking-widest mb-4">TESTIMONIALS</div>
@@ -312,7 +312,7 @@
     </section>
 
     <!-- Contact Section - Nordstrom Inspired -->
-    <section id="contact" class="relative py-24 bg-gradient-to-b from-gray-900 to-black overflow-hidden dark:bg-gradient-to-b dark:from-gray-900 dark:to-black">
+    <section id="contact" class="relative py-24 bg-white border-t border-gray-200 overflow-hidden">
       <!-- Decorative elements -->
       <div class="absolute inset-0 opacity-5">
         <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4yIj48cGF0aCBkPSJNMCAwaDQwdjQwSDB6Ii8+PC9nPjwvZz48L3N2Zz4=')]"></div>
@@ -511,18 +511,18 @@ const activeTab = ref('All');
 const searchQuery = ref('');
 
 const products = ref([
-  { id: 1, name: 'Oversized Graphic Tee', price: 899.0, compareAt: 1099.0, image: '/search_images/4u2kdUqkvMAv.jpg', colors: ['#111827', '#F3F4F6'], tags: ['New'], rating: 4.6, category: 'Unisex' },
-  { id: 2, name: 'Utility Cargo Pants', price: 1799.0, compareAt: 0, image: '/search_images/42fr15EGxcLv.jpg', colors: ['#374151', '#111827'], tags: ['Trending'], rating: 4.8, category: 'Men' },
-  { id: 3, name: 'Ribbed Knit Dress', price: 1599.0, compareAt: 1899.0, image: '/search_images/3WKayx05pJw1.jpg', colors: ['#F472B6', '#111827'], tags: ['New'], rating: 4.7, category: 'Women' },
-  { id: 4, name: 'Puffer Jacket Lite', price: 2499.0, compareAt: 2999.0, image: '/search_images/NDWoPWeMGLZ3.jpg', colors: ['#111827', '#6B7280'], tags: ['Sale'], rating: 4.5, category: 'Unisex' },
-  { id: 5, name: 'Relaxed Fit Hoodie', price: 1299.0, compareAt: 0, image: '/search_images/oMF3X7wxIJ0X.jpg', colors: ['#111827', '#F59E0B'], tags: ['Bestseller'], rating: 4.9, category: 'Unisex' },
-  { id: 6, name: 'Pleated Tennis Skirt', price: 1199.0, compareAt: 1399.0, image: '/search_images/4u2kdUqkvMAv.jpg', colors: ['#F3F4F6', '#111827'], tags: ['New'], rating: 4.4, category: 'Women' },
-  { id: 7, name: 'Boxy Denim Jacket', price: 2199.0, compareAt: 0, image: '/search_images/42fr15EGxcLv.jpg', colors: ['#1F2937', '#9CA3AF'], tags: ['Trending'], rating: 4.6, category: 'Men' },
-  { id: 8, name: 'Seamless Biker Shorts', price: 799.0, compareAt: 999.0, image: '/search_images/3WKayx05pJw1.jpg', colors: ['#111827', '#F472B6'], tags: ['Sale'], rating: 4.3, category: 'Women' },
-  { id: 9, name: 'Layered Chain Necklace', price: 349.0, compareAt: 0, image: '/search_images/NDWoPWeMGLZ3.jpg', colors: ['#F3F4F6'], tags: ['Accessory'], rating: 4.8, category: 'Unisex' },
-  { id: 10, name: 'Athletic Track Jacket', price: 1899.0, compareAt: 0, image: '/search_images/oMF3X7wxIJ0X.jpg', colors: ['#111827', '#10B981'], tags: ['New'], rating: 4.7, category: 'Men' },
-  { id: 11, name: 'Cropped Top Set', price: 1399.0, compareAt: 1699.0, image: '/search_images/3WKayx05pJw1.jpg', colors: ['#F472B6', '#111827'], tags: ['Set'], rating: 4.5, category: 'Women' },
-  { id: 12, name: 'Everyday Sneakers', price: 2099.0, compareAt: 2499.0, image: '/search_images/42fr15EGxcLv.jpg', colors: ['#111827', '#F3F4F6'], tags: ['Sale'], rating: 4.6, category: 'Unisex' },
+  { id: 1, name: 'Oversized Graphic Tee', price: 899.0, compareAt: 1099.0, image: '/adore pics/tshirt.jpg', colors: ['#111827', '#F3F4F6'], tags: ['New'], rating: 4.6, category: 'Unisex' },
+  { id: 2, name: 'Utility Cargo Pants', price: 1799.0, compareAt: 0, image: '/adore pics/womentrouser.jpg', colors: ['#374151', '#111827'], tags: ['Trending'], rating: 4.8, category: 'Men' },
+  { id: 3, name: 'Ribbed Knit Dress', price: 1599.0, compareAt: 1899.0, image: '/adore pics/tshirt3.jpg', colors: ['#F472B6', '#111827'], tags: ['New'], rating: 4.7, category: 'Women' },
+  { id: 4, name: 'Puffer Jacket Lite', price: 2499.0, compareAt: 2999.0, image: '/adore pics/hoodie3.jpg', colors: ['#111827', '#6B7280'], tags: ['Sale'], rating: 4.5, category: 'Unisex' },
+  { id: 5, name: 'Relaxed Fit Hoodie', price: 1299.0, compareAt: 0, image: '/adore pics/hoodie.jpg', colors: ['#111827', '#F59E0B'], tags: ['Bestseller'], rating: 4.9, category: 'Unisex' },
+  { id: 6, name: 'Pleated Tennis Skirt', price: 1199.0, compareAt: 1399.0, image: '/adore pics/tshirt2.jpg', colors: ['#F3F4F6', '#111827'], tags: ['New'], rating: 4.4, category: 'Women' },
+  { id: 7, name: 'Boxy Denim Jacket', price: 2199.0, compareAt: 0, image: '/adore pics/sweater.jpg', colors: ['#1F2937', '#9CA3AF'], tags: ['Trending'], rating: 4.6, category: 'Men' },
+  { id: 8, name: 'Seamless Biker Shorts', price: 799.0, compareAt: 999.0, image: '/adore pics/womentrouser2.jpg', colors: ['#111827', '#F472B6'], tags: ['Sale'], rating: 4.3, category: 'Women' },
+  { id: 9, name: 'Layered Chain Necklace', price: 349.0, compareAt: 0, image: '/adore pics/glass1.jpg', colors: ['#F3F4F6'], tags: ['Accessory'], rating: 4.8, category: 'Unisex' },
+  { id: 10, name: 'Athletic Track Jacket', price: 1899.0, compareAt: 0, image: '/adore pics/hoodie2.jpg', colors: ['#111827', '#10B981'], tags: ['New'], rating: 4.7, category: 'Men' },
+  { id: 11, name: 'Cropped Top Set', price: 1399.0, compareAt: 1699.0, image: '/adore pics/tshirt1.jpg', colors: ['#F472B6', '#111827'], tags: ['Set'], rating: 4.5, category: 'Women' },
+  { id: 12, name: 'Everyday Sneakers', price: 2099.0, compareAt: 2499.0, image: '/adore pics/shoe.jpg', colors: ['#111827', '#F3F4F6'], tags: ['Sale'], rating: 4.6, category: 'Unisex' },
 ]);
 
 const featuredProduct = computed(() => products.value[0]);
