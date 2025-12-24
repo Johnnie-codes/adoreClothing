@@ -718,7 +718,7 @@ const banks = [
 // (removed legacy news data)
 
 const contactInfo = [
-  { icon: 'fa-map-marker-alt', title: 'Visit Our Store', content: '123 Fashion Avenue\nNew York, NY 10001' },
+  { icon: 'fa-map-marker-alt', title: 'Visit Our Store', content: 'Bole Mafi City Center' },
   { icon: 'fa-phone', title: 'Call Us', content: '+1 (555) 123-4567\n+1 (555) 987-6543' },
   { icon: 'fa-envelope', title: 'Email Us', content: 'info@adorefashion.com\nsupport@adorefashion.com' },
   { icon: 'fa-clock', title: 'Store Hours', content: 'Monday - Friday: 10:00 AM - 8:00 PM\nSaturday - Sunday: 11:00 AM - 7:00 PM' },
