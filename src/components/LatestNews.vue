@@ -1,11 +1,33 @@
 <template>
-  <section class="bg-gradient-to-br from-orange-50 to-orange-100 py-16">
+  <section class="bg-gradient-to-br from-orange-50 to-orange-100 py-16 dark:from-gray-900 dark:to-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Video Section -->
+      <div class="mb-16 rounded-2xl overflow-hidden shadow-2xl" data-aos="fade-up">
+        <div class="aspect-w-16 aspect-h-9 w-full">
+          <video 
+            class="w-full h-full object-cover" 
+            controls 
+            autoplay
+            loop
+            muted
+          >
+            <source src="/src/assets/videos/kenemaNewsVideo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="bg-white dark:bg-gray-800 p-6">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Kenema Pharmacy: Our Story</h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Watch our latest video to learn more about our commitment to quality healthcare and community service.
+          </p>
+        </div>
+      </div>
+
       <!-- Header -->
       <div class="text-center mb-12" data-aos="fade-up">
-        <div class="inline-block bg-orange-100 text-orange-600 px-4 py-1.5 rounded-full text-sm font-semibold mb-4">News & Updates</div>
-        <h2 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-orange-600 mb-4">Latest News & Updates</h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        <div class="inline-block bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 px-4 py-1.5 rounded-full text-sm font-semibold mb-4">News & Updates</div>
+        <h2 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-orange-600 dark:from-blue-400 dark:to-orange-400 mb-4">Latest News & Updates</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
           Stay informed with the latest developments, achievements, and announcements from Kenema Pharmacies
         </p>
         <div class="h-1 w-24 bg-gradient-to-r from-orange-600 to-orange-400 rounded-full mx-auto mt-6"></div>
