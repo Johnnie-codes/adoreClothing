@@ -23,6 +23,20 @@
           </div>
         </div>
       </div>
+      <!-- Mobile Quick Nav (always visible on mobile) -->
+      <div class="md:hidden bg-white/95 dark:bg-gray-900/95 border-t border-gray-200 dark:border-gray-800">
+        <div class="px-4 py-2 overflow-x-auto no-scrollbar">
+          <div class="flex items-center space-x-3 text-sm">
+            <router-link to="/" class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white whitespace-nowrap">Home</router-link>
+            <span class="text-gray-300">|</span>
+            <router-link to="/t-shirts" class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white whitespace-nowrap">T-Shirts</router-link>
+            <router-link to="/trousers" class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white whitespace-nowrap">Trousers</router-link>
+            <router-link to="/hoodies" class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white whitespace-nowrap">Hoodies</router-link>
+            <router-link to="/shoes" class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white whitespace-nowrap">Shoes</router-link>
+            <router-link to="/accessories" class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white whitespace-nowrap">Accessories</router-link>
+          </div>
+        </div>
+      </div>
       <!-- Mobile Menu -->
       <div v-if="isMobileMenuOpen" class="md:hidden bg-white/95 dark:bg-gray-900/95 border-t border-gray-200 dark:border-gray-800">
         <div class="px-6 py-4 space-y-4">

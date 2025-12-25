@@ -71,6 +71,20 @@
             </button>
           </div>
         </div>
+        <!-- Mobile Quick Nav (always visible on mobile) -->
+        <div class="md:hidden bg-white/95 border-t border-gray-200">
+          <div class="px-4 py-2 overflow-x-auto no-scrollbar">
+            <div class="flex items-center space-x-3 text-sm">
+              <router-link to="/" class="text-gray-700 hover:text-gray-900 whitespace-nowrap">Home</router-link>
+              <span class="text-gray-300">|</span>
+              <router-link to="/t-shirts" class="text-gray-700 hover:text-gray-900 whitespace-nowrap">T-Shirts</router-link>
+              <router-link to="/trousers" class="text-gray-700 hover:text-gray-900 whitespace-nowrap">Trousers</router-link>
+              <router-link to="/hoodies" class="text-gray-700 hover:text-gray-900 whitespace-nowrap">Hoodies</router-link>
+              <router-link to="/shoes" class="text-gray-700 hover:text-gray-900 whitespace-nowrap">Shoes</router-link>
+              <router-link to="/accessories" class="text-gray-700 hover:text-gray-900 whitespace-nowrap">Accessories</router-link>
+            </div>
+          </div>
+        </div>
         <!-- Mobile Menu -->
         <div v-if="isMobileMenuOpen" class="md:hidden bg-white/95 dark:bg-gray-900/95 border-t border-gray-200 dark:border-gray-800">
           <div class="px-6 py-4 space-y-4">
@@ -96,7 +110,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 bg-gradient-to-r from-gray-50 to-gray-100 relative overflow-hidden border-b border-gray-200">
+    <section id="home" class="pt-28 sm:pt-28 md:pt-32 pb-16 sm:pb-20 bg-gradient-to-r from-gray-50 to-gray-100 relative overflow-hidden border-b border-gray-200">
       <div class="absolute inset-0 opacity-5">
         <div class="absolute top-10 sm:top-20 left-4 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
         <div class="absolute top-20 sm:top-40 right-4 sm:right-10 w-48 sm:w-72 h-48 sm:h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
@@ -186,7 +200,7 @@
     </section>
 
     <!-- Category Navigation -->
-    <div class="sticky top-16 sm:top-20 z-40 bg-white shadow-sm border-b border-gray-200">
+    <div class="sticky top-24 sm:top-20 z-40 bg-white shadow-sm border-b border-gray-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <div class="flex items-center space-x-1 sm:space-x-2 overflow-x-auto py-2 sm:py-3 no-scrollbar">
           <button 
