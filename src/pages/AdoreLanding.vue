@@ -17,8 +17,22 @@
           <a href="#" class="text-xl sm:text-2xl font-bold text-gray-900">ADORE</a>
           
           <!-- Desktop Navigation -->
-          <div class="hidden md:flex items-center space-x-4 lg:space-x-8">
+          <div class="hidden md:flex items-center space-x-4 lg:space-x-6">
             <a href="#" class="text-sm sm:text-base text-gray-700 hover:text-gray-900 transition-colors">Home</a>
+            <!-- Categories Dropdown -->
+            <div class="relative group">
+              <button class="flex items-center text-sm sm:text-base text-gray-700 hover:text-gray-900 transition-colors">
+                <span>Categories</span>
+                <i class="fas fa-chevron-down text-xs ml-1 mt-0.5 transition-transform group-hover:rotate-180"></i>
+              </button>
+              <div class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <router-link to="/t-shirts" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">T-Shirts</router-link>
+                <router-link to="/trousers" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Trousers</router-link>
+                <router-link to="/hoodies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Hoodies</router-link>
+                <router-link to="/shoes" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Shoes</router-link>
+                <router-link to="/accessories" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Accessories</router-link>
+              </div>
+            </div>
             <a href="#collection" class="text-sm sm:text-base text-gray-700 hover:text-gray-900 transition-colors">Collection</a>
             <a href="#products" class="text-sm sm:text-base text-gray-700 hover:text-gray-900 transition-colors">Products</a>
             <a href="#features" class="text-sm sm:text-base text-gray-700 hover:text-gray-900 transition-colors">Features</a>
@@ -27,9 +41,26 @@
               <i :class="theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon'" class="text-sm sm:text-base"></i>
             </button>
             <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-3 sm:px-6 py-2 rounded-full text-sm sm:text-base transition-colors whitespace-nowrap">Contact</a>
+            <!-- Cart -->
+            <div class="ml-4 flow-root lg:ml-6">
+              <button @click="isCartOpen = true" class="group -m-2 flex items-center p-2 relative">
+                <i class="fas fa-shopping-cart text-xl text-gray-700 group-hover:text-gray-800"></i>
+                <span v-if="cartItems.length > 0" class="absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  {{ cartItems.reduce((sum, item) => sum + item.quantity, 0) }}
+                </span>
+                <span class="sr-only">items in cart, view bag</span>
+              </button>
+            </div>
           </div>
           <!-- Mobile menu button -->
-          <div class="flex md:hidden">
+          <div class="flex items-center lg:hidden">
+            <!-- Cart button for mobile -->
+            <button @click="isCartOpen = true" class="p-2 text-gray-700 hover:text-gray-900 relative">
+              <i class="fas fa-shopping-cart text-xl"></i>
+              <span v-if="cartItems.length > 0" class="absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                {{ cartItems.reduce((sum, item) => sum + item.quantity, 0) }}
+              </span>
+            </button>
             <button 
               type="button" 
               @click="toggleMobileMenu"
@@ -44,6 +75,14 @@
         <div v-if="isMobileMenuOpen" class="md:hidden bg-white/95 dark:bg-gray-900/95 border-t border-gray-200 dark:border-gray-800">
           <div class="px-6 py-4 space-y-4">
             <a href="#" @click="isMobileMenuOpen = false" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Home</a>
+            <div class="space-y-1 pl-3 border-l-2 border-gray-200 dark:border-gray-700">
+              <div class="font-medium text-gray-500 text-xs uppercase tracking-wider mb-1">Categories</div>
+              <router-link to="/t-shirts" @click="isMobileMenuOpen = false" class="block text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white py-1.5">T-Shirts</router-link>
+              <router-link to="/trousers" @click="isMobileMenuOpen = false" class="block text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white py-1.5">Trousers</router-link>
+              <router-link to="/hoodies" @click="isMobileMenuOpen = false" class="block text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white py-1.5">Hoodies</router-link>
+              <router-link to="/shoes" @click="isMobileMenuOpen = false" class="block text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white py-1.5">Shoes</router-link>
+              <router-link to="/accessories" @click="isMobileMenuOpen = false" class="block text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white py-1.5">Accessories</router-link>
+            </div>
             <a href="#collection" @click="isMobileMenuOpen = false" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Collection</a>
             <a href="#products" @click="isMobileMenuOpen = false" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Products</a>
             <a href="#features" @click="isMobileMenuOpen = false" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Features</a>
@@ -73,7 +112,7 @@
             </div>
 
             <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 mb-4 sm:mb-6 leading-tight">
-              Fast Fashion for <span class="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">Every Mood</span>
+              Fashion for <span class="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">Every Mood</span>
             </h1>
 
             <p class="text-base sm:text-lg md:text-xl text-gray-700 mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
@@ -146,6 +185,38 @@
       </div>
     </section>
 
+    <!-- Category Navigation -->
+    <div class="sticky top-16 sm:top-20 z-40 bg-white shadow-sm border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="flex items-center space-x-1 sm:space-x-2 overflow-x-auto py-2 sm:py-3 no-scrollbar">
+          <button 
+            v-for="tab in tabs" 
+            :key="tab"
+            @click="setTab(tab)"
+            :class="[
+              'px-3 sm:px-4 py-2 text-sm sm:text-base font-medium rounded-full whitespace-nowrap transition-colors',
+              activeTab === tab 
+                ? 'bg-blue-600 text-white' 
+                : 'text-gray-700 hover:bg-gray-100'
+            ]"
+          >
+            {{ tab }}
+          </button>
+          <div class="relative flex-1 max-w-[100px]">
+            <input
+              type="text"
+              v-model="searchQuery"
+              placeholder="Search products..."
+              class="w-full bg-gray-100 border-0 rounded-full py-2 sm:py-2.5 px-4 text-sm sm:text-base text-gray-700 focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all duration-200"
+            >
+            <button class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Collection Section -->
     <section id="collection" class="py-20 bg-gray-50">
       <div class="max-w-7xl mx-auto px-6">
@@ -178,134 +249,16 @@
     </section>
 
     <!-- Products Section -->
-    <section id="products" class="py-12 sm:py-16 lg:py-20 bg-white border-t border-gray-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-8 sm:mb-10" data-aos="fade-up">
-          <div class="inline-block bg-blue-100 text-blue-600 px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-semibold mb-3 sm:mb-4">Shop the Drop</div>
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-3 sm:mb-4">New Arrivals</h2>
-          <p class="text-base sm:text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">Fresh fits dropping weekly. Limited stock — grab yours now.</p>
-        </div>
-
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 mb-6">
-          <div class="flex flex-wrap gap-2 justify-center sm:justify-start">
-            <button 
-              v-for="tab in tabs" 
-              :key="tab" 
-              @click="setTab(tab)" 
-              :class="[
-                'px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all', 
-                activeTab === tab 
-                  ? 'bg-blue-600 text-white' 
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              ]"
-            >
-              {{ tab }}
-            </button>
-          </div>
-          <div class="relative w-full sm:w-64 md:w-80">
-            <input 
-              v-model="searchQuery" 
-              type="text" 
-              placeholder="Search products..." 
-              class="w-full bg-gray-50 border border-gray-200 rounded-lg pl-9 pr-4 py-2 text-sm placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" 
-            />
-            <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"></i>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
-          <div 
-            v-for="product in filteredProducts" 
-            :key="product.id" 
-            data-aos="fade-up" 
-            class="bg-white border border-gray-100 rounded-xl overflow-hidden group hover:shadow-md transition-shadow"
-          >
-            <div class="relative aspect-[3/4] overflow-hidden">
-              <img 
-                :src="product.image" 
-                :alt="product.name" 
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
-              />
-              <!-- Badges -->
-              <div class="absolute top-3 left-3 flex flex-col gap-1.5">
-                <span 
-                  v-if="product.tags?.includes('New')" 
-                  class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-1 rounded whitespace-nowrap"
-                >
-                  NEW
-                </span>
-                <span 
-                  v-if="product.compareAt" 
-                  class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded whitespace-nowrap"
-                >
-                  -{{ discountPercent(product) }}% OFF
-                </span>
-              </div>
-              
-              <!-- Wishlist Button -->
-              <button 
-                @click="toggleWishlist(product)" 
-                class="absolute top-3 right-3 p-2 rounded-full bg-white/90 hover:bg-white transition-colors shadow-sm"
-                aria-label="Add to wishlist"
-              >
-                <i :class="[
-                  'fas', 
-                  product.__wish 
-                    ? 'fa-heart text-red-500' 
-                    : 'fa-heart text-gray-400 hover:text-red-500'
-                ]"></i>
-              </button>
-              
-              <!-- Quick Add Button -->
-              <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 p-3 bg-gradient-to-t from-black/70 to-transparent">
-                <button 
-                  @click="addToCart(product)" 
-                  class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg font-semibold transition-colors text-sm sm:text-base flex items-center justify-center gap-2"
-                >
-                  <i class="fas fa-shopping-bag"></i>
-                  <span>Add to Cart</span>
-                </button>
-              </div>
-            </div>
-            
-            <!-- Product Info -->
-            <div class="p-3 sm:p-4">
-              <div class="flex items-start justify-between gap-2">
-                <h3 class="font-medium text-gray-900 text-sm sm:text-base line-clamp-2">
-                  {{ product.name }}
-                </h3>
-                <div class="flex items-center gap-1 text-xs sm:text-sm text-amber-500 bg-amber-50 px-1.5 py-0.5 rounded">
-                  <i class="fas fa-star"></i>
-                  <span>{{ product.rating }}</span>
-                </div>
-              </div>
-              
-              <div class="mt-2 flex items-center gap-2">
-                <span class="text-gray-900 font-bold text-sm sm:text-base">
-                  ETB {{ formatPrice(product.price) }}
-                </span>
-                <span 
-                  v-if="product.compareAt" 
-                  class="text-gray-400 line-through text-xs sm:text-sm"
-                >
-                  ETB {{ formatPrice(product.compareAt) }}
-                </span>
-              </div>
-              
-              <div class="mt-3 flex items-center gap-1.5 flex-wrap">
-                <span 
-                  v-for="(c, idx) in product.colors" 
-                  :key="idx" 
-                  class="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full border border-gray-200" 
-                  :style="{ backgroundColor: c }"
-                  :title="'Color ' + (idx + 1)"
-                ></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <ProductList
+      id="products"
+      :products="products"
+      title="New Arrivals"
+      subtitle="Shop the Drop"
+      description="Fresh fits dropping weekly. Limited stock — grab yours now."
+      :categories="tabs"
+      @add-to-cart="addToCart"
+      @toggle-wishlist="toggleWishlist"
+    />
 
     <!-- Features Section -->
     <section id="features" class="py-12 sm:py-16 lg:py-20 bg-gray-50 border-t border-gray-200">
@@ -647,12 +600,22 @@
         </p>
       </div>
     </footer>
+    <!-- Cart Sidebar -->
+    <Cart 
+      v-if="isCartOpen"
+      :cart-items="cartItems"
+      @update:cart-items="updateCartItems"
+      @checkout="handleCheckout"
+      @close="isCartOpen = false"
+    />
   </div>
 </template>
 
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue';
 import AOS from 'aos';
+import ProductList from '@/components/products/ProductList.vue';
+import Cart from '@/components/cart/Cart.vue';
 import 'aos/dist/aos.css';
 
 const showLoadingScreen = ref(true);
@@ -728,7 +691,8 @@ const contactInfo = [
 const isMobileMenuOpen = ref(false);
 
 // Fast-fashion shop state
-const cartCount = ref(0);
+const cartItems = ref([]);
+const isCartOpen = ref(false);
 const wishlistCount = ref(0);
 
 // Format date for reviews
@@ -783,7 +747,32 @@ const toggleWishlist = (product) => {
 };
 
 const addToCart = (product) => {
-  cartCount.value += 1;
+  const existingItem = cartItems.value.find(item => item.id === product.id);
+  
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cartItems.value.push({
+      ...product,
+      quantity: 1
+    });
+  }
+  
+  // Open cart when adding an item
+  isCartOpen.value = true;
+  
+  // Optional: Show a notification
+  // You can implement a toast notification here
+};
+
+const updateCartItems = (updatedItems) => {
+  cartItems.value = updatedItems;
+};
+
+const handleCheckout = () => {
+  // Implement your checkout logic here
+  alert('Proceeding to checkout with ' + cartItems.value.length + ' items');
+  // You can navigate to checkout page or show a checkout form
 };
 
 // Reviews

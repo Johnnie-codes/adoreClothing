@@ -10,7 +10,9 @@
             <router-link to="/" class="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors">Home</router-link>
             <router-link to="/shoes" class="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors">Shoes</router-link>
             <router-link to="/trousers" class="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors">Trousers</router-link>
-            <router-link to="/tshirts" class="text-pink-500 font-medium hover:text-pink-600 dark:text-pink-400 dark:hover:text-pink-300 transition-colors">T-Shirts</router-link>
+            <router-link to="/t-shirts" class="text-pink-500 font-medium hover:text-pink-600 dark:text-pink-400 dark:hover:text-pink-300 transition-colors">T-Shirts</router-link>
+            <router-link to="/hoodies" class="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors">Hoodies</router-link>
+            <router-link to="/accessories" class="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors">Accessories</router-link>
             <button @click="toggleTheme" class="p-2 rounded-full text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
               <i :class="theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon'"></i>
             </button>
@@ -30,7 +32,9 @@
           <router-link to="/" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Home</router-link>
           <router-link to="/shoes" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Shoes</router-link>
           <router-link to="/trousers" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Trousers</router-link>
-          <router-link to="/tshirts" class="block text-pink-500 font-medium py-2">T-Shirts</router-link>
+          <router-link to="/t-shirts" class="block text-pink-500 font-medium py-2">T-Shirts</router-link>
+          <router-link to="/hoodies" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Hoodies</router-link>
+          <router-link to="/accessories" class="block text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white py-2">Accessories</router-link>
         </div>
       </div>
     </nav>

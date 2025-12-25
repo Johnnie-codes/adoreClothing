@@ -6,6 +6,8 @@ import AdoreLanding from './pages/AdoreLanding.vue';
 import ShoesPage from './pages/ShoesPage.vue';
 import TrousersPage from './pages/TrousersPage.vue';
 import TShirtsPage from './pages/TShirtsPage.vue';
+import HoodiesPage from './pages/HoodiesPage.vue';
+import AccessoriesPage from './pages/AccessoriesPage.vue';
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -35,9 +37,20 @@ const router = createRouter({
       component: TrousersPage,
     },
     {
-      path: "/tshirts",
+      path: "/t-shirts",
+      alias: ["/tshirts"],
       name: "TShirts",
       component: TShirtsPage,
+    },
+    {
+      path: "/hoodies",
+      name: "Hoodies",
+      component: HoodiesPage,
+    },
+    {
+      path: "/accessories",
+      name: "Accessories",
+      component: AccessoriesPage,
     },
   ]
 })
